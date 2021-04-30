@@ -1,6 +1,12 @@
-@import "https://gavinmorrow.com/google-fonts/fonts=Major Mono Display|Jura|Comfortaa";
+@import "https://gavinmorrow.com/google-fonts/?fonts=Major Mono Display|Bungee Inline|Jura|Comfortaa";
 :root {
-	
+	--font-family-b1: "Jura", "Comfortaa", sans-serif;
+	--font-family-b2: "Comfortaa", "Jura", sans-serif;
+	--font-family-h1: "Major Mono Display", monospace;
+	--font-family-h1a: "Bungee Inline", "Major Mono Display", var(--font-family-b1);
+	--font-family-h1b: "Bungee Inline", "Major Mono Display", var(--font-family-b2);
 
 	--border-radius: 1rem;
+
+	font-family: var(--font-family-b1);
 }
