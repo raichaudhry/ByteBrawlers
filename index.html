@@ -8,10 +8,16 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<form action="javascript:login()" method="get">
-		<input type="text" autocomplete="username">
-		<input type="password" autocomplete="current-password">
-		<input type="submit">
+	<form action="javascript:login()" method="get" id="login">
+		<label for="username">Username:</label>
+		<input id="username" type="text" autocomplete="username">
+		<br/>
+
+		<label for="pass">Password:</label>
+		<input id="pass" type="password" autocomplete="current-password">
+		<br/>
+
+		<input type="submit" id="submit" value="Login">
 	</form>
 	<script src="script.js" type="module"></script>
 </body>

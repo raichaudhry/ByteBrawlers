@@ -1,1 +1,7 @@
 @import "/ui.css";
+
+#login {
+	width: fit-content;
+	text-align: justify;
+	display: inline-block;
+}

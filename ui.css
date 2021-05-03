@@ -1,4 +1,4 @@
-@import "https://gavinmorrow.com/google-fonts/?fonts=Major Mono Display|Bungee Inline|Jura|Comfortaa";
+@import "https://gavinmorrow.com/google-fonts/Major Mono Display|Bungee Inline|Jura|Comfortaa/swap";
 :root {
 	--font-family-b1: "Jura", "Comfortaa", sans-serif;
 	--font-family-b2: "Comfortaa", "Jura", sans-serif;
@@ -19,4 +19,12 @@ html, body {
 
 	margin: 0;
 	padding: 0;
+	text-align: center;
+
+	width: 100vw;
+	overflow-x: hidden;
+}
+button, input {
+	font-family: var(--font-family-b1);
+	font-size: initial;
 }
