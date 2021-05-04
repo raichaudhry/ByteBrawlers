@@ -15,7 +15,7 @@ body {
 	height: fit-content;
 	position: relative;
 }
-h1 {
+h1, p {
 	margin-bottom: 0;
 }
 
