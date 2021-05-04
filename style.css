@@ -1,7 +1,54 @@
 @import "/ui.css";
 
+html {
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: xx-large;
+}
+body {
+	width: fit-content;
+	height: fit-content;
+	position: relative;
+}
+h1 {
+	margin-bottom: 0;
+}
+
 #login {
 	width: fit-content;
-	text-align: justify;
+	text-align: right;
 	display: inline-block;
+	position: relative;
+}
+.button-wrapper {
+	width: 100%;
+	text-align: center;
+}
+#login section {
+	margin: calc(var(--border-radius) * 2);
+	border-radius: var(--border-radius);
+	display: block;
+	position: relative;
+}
+#login input:not(#submit) {
+	border-radius: 0;
+	padding: 0;
+	border: transparent;
+	--border-height: calc(var(--border-radius) / 10);
+	border-bottom: var(--border-height) solid var(--easyjs-inverse-subText);
+	outline: transparent;
+	transition: border-bottom 1s;
+}
+#login input:not(#submit):focus {
+	border-bottom: var(--border-height) solid var(--easyjs-text);
+}
+#login button {
+	border: none;
+	background-color: var(--easyjs-buttonBg);
+	transition: box-shadow 1s;
 }

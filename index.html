@@ -8,16 +8,22 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<h1>ByteBrawlers</h1>
 	<form action="javascript:login()" method="get" id="login">
-		<label for="username">Username:</label>
-		<input id="username" type="text" autocomplete="username">
-		<br/>
+		<section>
+			<label for="username">Username:</label>
+			<input id="username" type="text" autocomplete="username">
+		</section>
 
-		<label for="pass">Password:</label>
-		<input id="pass" type="password" autocomplete="current-password">
-		<br/>
+		<section>
+			<label for="pass">Password:</label>
+			<input id="pass" type="password" autocomplete="current-password">
+			<br/>
+			<br/>
+			<div class="button-wrapper"><button id="pass-toggle">Show Password</button></div>
+		</section>
 
-		<input type="submit" id="submit" value="Login">
+		<div class="button-wrapper"><input type="submit" id="submit" value="Login"></div>
 	</form>
 	<script src="script.js" type="module"></script>
 </body>

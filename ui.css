@@ -6,7 +6,7 @@
 	--font-family-h1a: "Bungee Inline", "Major Mono Display", var(--font-family-b1);
 	--font-family-h1b: "Bungee Inline", "Major Mono Display", var(--font-family-b2);
 
-	--border-radius: 1rem;
+	--border-radius: 0.5em;
 
 	font-family: var(--font-family-b1);
 }
@@ -26,5 +26,10 @@ html, body {
 }
 button, input {
 	font-family: var(--font-family-b1);
-	font-size: initial;
+	font-size: inherit;
+	padding: calc(var(--border-radius) * 0.75);
+	border-radius: var(--border-radius);
+}
+h1 {
+	font-weight: normal;
 }
