@@ -47,8 +47,9 @@ h1, p {
 #login input:not(#submit):focus {
 	border-bottom: var(--border-height) solid var(--easyjs-text);
 }
-#login button {
+#pass-toggle {
 	border: none;
 	background-color: var(--easyjs-buttonBg);
 	transition: box-shadow 1s;
+	font-size: xx-large;
 }
