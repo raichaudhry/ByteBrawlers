@@ -28,7 +28,26 @@ colorScheme.setColors({
 });
 
 window.login = async () => {
-	alert("Loging in…");
+	const username = document.getElementById("username");
+	const pass = document.getElementById("pass");
+	const pop = document.getElementById("error");
+	const passHashed = await fetch(`/users/${username.value}/pass.txt`).then(r => r.text());
+	const hash = string => {
+		let output = "";
+		for (let letter of string) {
+			const binary = letter.charCodeAt(0) >>> 0;
+			
+			output += binary^10101010;
+		}
+		return output;
+	};
+	const popup = up => {
+		pop.innerHTML = up;
+		pop.parentElement.classList.add("visible");
+		setTimeout(() => pop.parentElement.classList.remove("visible"), 1000);
+	}
+	if (passHashed == hash(pass.value)) popup("Logged in!");
+	else popup("Nope!");
 }
 
 const togglePass = document.getElementById("pass-toggle");

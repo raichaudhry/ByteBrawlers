@@ -13,12 +13,12 @@
 	<form action="javascript:login()" method="get" id="login">
 		<section>
 			<label for="username">Username:</label>
-			<input id="username" type="text" autocomplete="username">
+			<input id="username" type="text" autocomplete="username" required>
 		</section>
 
 		<section>
 			<label for="pass">Password:</label>
-			<input id="pass" type="password" autocomplete="current-password">
+			<input id="pass" type="password" autocomplete="current-password" required>
 			<br/>
 			<br/>
 			<div class="button-wrapper"><input type="checkbox" id="pass-toggle"><label for="pass-toggle" >Show Password</label></div>
@@ -26,6 +26,7 @@
 
 		<div class="button-wrapper"><input type="submit" id="submit" value="Login"></div>
 	</form>
+	<div class="popup-wrapper"><div class="popup" id="error"></div></div>
 	<script src="script.js" type="module"></script>
 </body>
 </html>
