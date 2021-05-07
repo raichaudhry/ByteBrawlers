@@ -27,9 +27,6 @@ colorScheme.setColors({
 	link: "#adddad",
 });
 
-const passToggle = document.getElementById("pass-toggle");
-passToggle.style.setProperty("--size", `calc(${getComputedStyle(document.getElementById("pass-toggle-label")).fontSize})`);
-
 window.login = async () => {
 	const username = document.getElementById("username");
 	const pass = document.getElementById("pass");
@@ -46,14 +43,17 @@ window.login = async () => {
 	};
 	const popup = up => {
 		pop.innerHTML = up;
+		pop.style.zIndex = "1000";
+		pop.style.opacity = "1";
 		
 	}
 	if (passHashed == hash(pass.value)) popup("Logged in!");
 	else popup("Nope!");
 }
 
-const togglePass = document.getElementById("pass-toggle");
-togglePass.addEventListener("change", e => {
-	if (togglePass.checked) document.getElementById("pass").type = "text";
+const passToggle = document.getElementById("pass-toggle");
+passToggle.addEventListener("change", e => {
+	if (passToggle.checked) document.getElementById("pass").type = "text";
 	else document.getElementById("pass").type = "password";
 });
+passToggle.style.setProperty("--size", `calc(${getComputedStyle(document.getElementById("pass-toggle-label")).fontSize})`);
