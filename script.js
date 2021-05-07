@@ -27,6 +27,9 @@ colorScheme.setColors({
 	link: "#adddad",
 });
 
+const passToggle = document.getElementById("pass-toggle");
+passToggle.style.setProperty("--size", `calc(${getComputedStyle(document.getElementById("pass-toggle-label")).fontSize})`);
+
 window.login = async () => {
 	const username = document.getElementById("username");
 	const pass = document.getElementById("pass");
@@ -54,4 +57,3 @@ togglePass.addEventListener("change", e => {
 	if (togglePass.checked) document.getElementById("pass").type = "text";
 	else document.getElementById("pass").type = "password";
 });
-togglePass.style.setProperty("--size", getComputedStyle(document.getElementById("pass-toggle-label")).fontSize);
