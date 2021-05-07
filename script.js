@@ -54,3 +54,4 @@ togglePass.addEventListener("change", e => {
 	if (togglePass.checked) document.getElementById("pass").type = "text";
 	else document.getElementById("pass").type = "password";
 });
+togglePass.style.setProperty("--size", getComputedStyle(document.getElementById("pass-toggle-label")).fontSize);

@@ -52,4 +52,7 @@ h1, p {
 	background-color: var(--easyjs-buttonBg);
 	transition: box-shadow 1s;
 	font-size: xx-large;
+	width: var(--size);
+	height: var(--size);
+	vertical-align: text-top;
 }
