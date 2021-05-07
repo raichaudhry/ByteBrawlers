@@ -43,8 +43,7 @@ window.login = async () => {
 	};
 	const popup = up => {
 		pop.innerHTML = up;
-		pop.parentElement.classList.add("visible");
-		setTimeout(() => pop.parentElement.classList.remove("visible"), 1000);
+		
 	}
 	if (passHashed == hash(pass.value)) popup("Logged in!");
 	else popup("Nope!");
