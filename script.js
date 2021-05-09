@@ -1,6 +1,4 @@
-import EasyJSVersion from "https://gavinmorrow.github.io/EasyJS/main.js";
-const EasyJS = await EasyJSVersion(1);
-const colorScheme = EasyJS.ui.colorScheme; 
+import colorScheme from "https://gavinmorrow.github.io/EasyJS/1/ui/colorScheme/index.js";
 colorScheme.setColors({
 	bg: "#ffffff",
 	navBg: "#fefffe",
@@ -31,6 +29,7 @@ window.login = async () => {
 	const username = document.getElementById("username");
 	const pass = document.getElementById("pass");
 	const pop = document.getElementById("error");
+	const wrapper = document.getElementById("error").parentElement;
 	const passHashed = await fetch(`/users/${username.value}/pass.txt`).then(r => r.text());
 	const hash = string => {
 		let output = "";
@@ -43,9 +42,14 @@ window.login = async () => {
 	};
 	const popup = up => {
 		pop.innerHTML = up;
-		pop.style.zIndex = "1000";
-		pop.style.opacity = "1";
-		
+		wrapper.style.zIndex = "1000";
+		wrapper.style.opacity = "1";
+		setTimeout(() => {
+			// wrapper.style.opacity = "0";
+			// setTimeout(() => {
+			// 	wrapper.style.zIndex = "-1000";
+			// }, 1000);
+		}, 5000);
 	}
 	if (passHashed == hash(pass.value)) popup("Logged in!");
 	else popup("Nope!");
@@ -56,4 +60,4 @@ passToggle.addEventListener("change", e => {
 	if (passToggle.checked) document.getElementById("pass").type = "text";
 	else document.getElementById("pass").type = "password";
 });
-passToggle.style.setProperty("--size", `calc(${getComputedStyle(document.getElementById("pass-toggle-label")).fontSize})`);
+passToggle.style.setProperty("--size", getComputedStyle(document.getElementById("pass-toggle-label")).fontSize);

@@ -34,7 +34,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 .popup {
 	text-align: center;
+	background-color: rgba(255, 255, 255, 0.75);
+	padding: var(--border-radius);
+	border-radius: var(--border-radius);
 }
+/* .popup::after {
+	content: "x";
+	position: absolute;
+	font-size: smaller;
+	top: 0;
+	right: calc(var(--border-radius) * 0.5);
+	color: rgba(255, 255, 255, 0.75);
+	transition: color 1s;
+	width: 1em;
+	height: 1em;
+	border-radius: var(--border-radius);
+}
+.popup::after:hover {
+	color: white;
+} */
 .popup-wrapper {
 	position: fixed;
 	top: 0;
@@ -42,12 +60,12 @@ h1, h2, h3, h4, h5, h6 {
 	bottom: 0;
 	right: 0;
 	text-align: center;
-	z-index: -100000000;
+	z-index: -1000;
 	transition: opacity 1s;
 	opacity: 0;
 	display: flex;
 
 	justify-content: center;
 	align-items: center;
-	background-color: rgba(255, 255, 255, 0.75);
+	background-color: rgba(0, 0, 0, 0.75);
 }
