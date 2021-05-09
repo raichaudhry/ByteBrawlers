@@ -38,21 +38,6 @@ h1, h2, h3, h4, h5, h6 {
 	padding: var(--border-radius);
 	border-radius: var(--border-radius);
 }
-/* .popup::after {
-	content: "x";
-	position: absolute;
-	font-size: smaller;
-	top: 0;
-	right: calc(var(--border-radius) * 0.5);
-	color: rgba(255, 255, 255, 0.75);
-	transition: color 1s;
-	width: 1em;
-	height: 1em;
-	border-radius: var(--border-radius);
-}
-.popup::after:hover {
-	color: white;
-} */
 .popup-wrapper {
 	position: fixed;
 	top: 0;
