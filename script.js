@@ -52,8 +52,12 @@ window.login = async () => {
 	// 		// }, 1000);
 	// 	}, 5000);
 	// }
-	if (passHashed == hash(pass.value)) new Popup("Logged in!").show();
-	else new Popup("Nope!").show();
+	const popup1 = new Popup("Logged In", 5000, true);
+	const popup2 = new Popup("Access Denied", 5000, true);
+	setTimeout(() => {
+		if (passHashed == hash(pass.value)) popup1.show();
+		else popup2.show();
+	});
 }
 
 const passToggle = document.getElementById("pass-toggle");
