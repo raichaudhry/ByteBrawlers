@@ -70,4 +70,4 @@ passToggle.addEventListener("change", e => {
 		document.getElementById("pass-toggle-label").innerHTML = "Show Password";
 	}
 });
-passToggle.style.setProperty("--size", getComputedStyle(document.getElementById("pass-toggle-label")).fontSize);
+addEventListener("load", () => passToggle.style.setProperty("--size", getComputedStyle(document.getElementById("pass-toggle-label")).fontSize));
