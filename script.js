@@ -41,17 +41,6 @@ window.login = async () => {
 		}
 		return output;
 	};
-	// const popup = up => {
-	// 	pop.innerHTML = up;
-	// 	wrapper.style.zIndex = "1000";
-	// 	wrapper.style.opacity = "1";
-	// 	setTimeout(() => {
-	// 		// wrapper.style.opacity = "0";
-	// 		// setTimeout(() => {
-	// 		// 	wrapper.style.zIndex = "-1000";
-	// 		// }, 1000);
-	// 	}, 5000);
-	// }
 	const popup1 = new Popup("Logged In", 5000, true);
 	const popup2 = new Popup("Access Denied", 5000, true);
 	setTimeout(() => {
