@@ -1,5 +1,6 @@
 import colorScheme from "https://gavinmorrow.github.io/EasyJS/1/ui/colorScheme/index.js";
 import Popup from "https://gavinmorrow.github.io/EasyJS/1/ui/popup/index.js";
+import cookies from "https://gavinmorrow.github.io/EasyJS/1/cookies/main.js";
 colorScheme.setColors({
 	bg: "#ffffff",
 	navBg: "#fefffe",
@@ -25,6 +26,7 @@ colorScheme.setColors({
 	subText: "#acacac",
 	link: "#adddad",
 });
+cookies.cookieConsent();
 
 window.login = async () => {
 	const username = document.getElementById("username");
@@ -41,12 +43,13 @@ window.login = async () => {
 		}
 		return output;
 	};
-	const popup1 = new Popup("Logged In", 5000, true);
-	const popup2 = new Popup("Access Denied", 5000, true);
+	const popupOptions = [2500, true];
+	const popup1 = new Popup("Logged In", ...popupOptions);
+	const popup2 = new Popup("Access Denied", ...popupOptions);
 	setTimeout(() => {
 		if (passHashed == hash(pass.value)) popup1.show();
 		else popup2.show();
-	});
+	}, 100);
 }
 
 const passToggle = document.getElementById("pass-toggle");
