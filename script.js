@@ -27,7 +27,7 @@ colorScheme.setColors({
 	link: "#adddad",
 });
 cookies.cookieConsent();
-console.log(cookies.interface);
+console.log(cookies.Cookie);
 
 window.login = async () => {
 	const username = document.getElementById("username");
