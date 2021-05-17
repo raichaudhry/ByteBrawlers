@@ -48,7 +48,9 @@ window.login = async () => {
 	const popup1 = new Popup("Logged In", ...popupOptions);
 	const popup2 = new Popup("Access Denied", ...popupOptions);
 	setTimeout(() => {
-		if (passHashed == hash(pass.value)) popup1.show();
+		if (passHashed == hash(pass.value)) {
+			popup1.show();
+		}
 		else popup2.show();
 	}, 100);
 }
