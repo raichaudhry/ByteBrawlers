@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import "../style.css";
+
+html {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: xx-large;
+	text-align: center;
+	font-family: Rubik;
+}
+body {
+	width: fit-content;
+	height: fit-content;
+	position: relative;
+}
+h1, p {
+	margin-bottom: 0;
+}
+
+#signup {
+	width: fit-content;
+	text-align: right;
+	display: inline-block;
+	position: relative;
+}
+.button-wrapper {
+	width: 100%;
+	text-align: center;
+}
+#signup section {
+	margin: calc(var(--border-radius) * 2);
+	border-radius: var(--border-radius);
+	display: block;
+	position: relative;
+}
+#signup input:not(#submit) {
+	border-radius: 0;
+	padding: 0;
+	border: transparent;
+	--border-height: calc(var(--border-radius) / 10);
+	border-bottom: var(--border-height) solid var(--easyjs-inverse-subText);
+	outline: transparent;
+	transition: border-bottom 1s;
+}
+#signup input:not(#submit):focus {
+	border-bottom: var(--border-height) solid var(--easyjs-text);
+}
+#pass-toggle {
+	border: none;
+	background-color: var(--easyjs-buttonBg);
+	transition: box-shadow 1s;
+	font-size: xx-large;
+	border-radius: var(--border-radius) !important;
+	vertical-align: top;
+	width: var(--size);
+	height: var(--size);
+}
+input {
+	border: 2px black;
+}
+button {
+	/* ? */
+	text-align: center;
+}
+#dropdown {
+	background-color: #000000;
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+	text-align:center;
+  }
+  
+  #username {
+	position: relative;
+	display: inline-block;
+  }
+  
+  .choices {
+	display: none;
+	position: absolute;
+	right: 0;
+	background-color: white;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1000000000000000;
+	text-align: center;
+  }
+  
+  .choices {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: round;
+  }
+  
+  .choices:hover {background-color: #f1f1f1;}
+  
+  #username:hover .choices {
+	display: block;
+  }
+  
+  .username:hover #dropdown {
+	background-color: #000100;
+  }
+a {
+	color: #000000;
+}

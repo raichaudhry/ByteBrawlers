@@ -46,10 +46,10 @@ window.login = async () => {
 	};
 	const popupOptions = [2500, true];
 	const popup1 = new Popup("Logged In", ...popupOptions);
-	const popup2 = new Popup("Please enter the correct username and password.", ...popupOptions);
+	const popup2 = new Popup("Access Denied", ...popupOptions);
 	setTimeout(() => {
 		if (passHashed == hash(pass.value)) {
-			location.href = "launcher.html";
+			popup1.show();
 		}
 		else popup2.show();
 	}, 100);
