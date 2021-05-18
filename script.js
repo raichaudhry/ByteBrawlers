@@ -45,11 +45,10 @@ window.login = async () => {
 		return output;
 	};
 	const popupOptions = [2500, true];
-	const popup1 = new Popup("Logged In", ...popupOptions);
 	const popup2 = new Popup("Please enter the correct username and password.", ...popupOptions);
 	setTimeout(() => {
 		if (passHashed == hash(pass.value)) {
-			location.href = "launcher.html";
+			location.href = "/launcher/";
 		}
 		else popup2.show();
 	}, 100);
