@@ -17,3 +17,7 @@ if (first != test) {
     setCookies();
 }
 }
+function submit () {
+    alert("Submitting your login request.");
+    
+}
