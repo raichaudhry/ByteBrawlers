@@ -8,19 +8,19 @@
 	<title>Sign Up - ByteBrawlers</title>
 </head>
 <body>
+<div id = "challenge1">
 	<h1>ByteBrawlers</h1>
 	<h2>Sign Up</h2>
 	<form action="javascript:signup()" id="signup">
 		<section>
 			<label for="first">First Name:</label>
-			<input id="username" type="text" autocomplete="given-name">
+			<input id="first" type="text" autocomplete="given-name">
 		</section>
 		<section>
 			<label for="last">Last Name:</label>
-			<input id="username" type="text" autocomplete="family-name">
+			<input id="last" type="text" autocomplete="family-name">
 
 		</section>
-        <div class = "center">
         <span>Username:</span>
 		<select>
 			
@@ -30,7 +30,6 @@
 				<option value="4">GrowlyTiger38</option>
 		</select>
         <br/>
-        </div>
 		<!-- <section id = "username">
 			<p>Choose your username</p>
 			<button id = "dropdown">Select...</button>
@@ -47,12 +46,28 @@
 	
 	?>
 
-	<script src="../script.js" type="module"></script>
-    <button onClick = "submit()">Next</button>
+	<script src="script.js" type="module"></script>
+    <button onClick = "javascript:signup()">Next</button>
 
 	<hr/>
-	<p>You can fill out <a>this form</a> to request a username change</p>
+	<p>You can fill out <a href = "./username-request">this form</a> to request a username change</p>
+	</div>
+	<div id = "challenge2">
+	<title>ByteBrawlers - Signup</title>
+</head>
+<body> 
+<h1>Welcome, Given Family!</h1>
+<hr>
+<label for="email">Enter your email adress below:</label>
+<br/>
+<input type="email" id="email" name="email" autocomplete="on"><br><br>
+<br/>
+<h4>Email:</h4>
+<input 
+<br/>
+<hr/>
+<span>Click the link you recieve in your email to finish setting up your account. If you do not recieve it within five minutes, check your spam folder.</span>
+	</div>
     <script src="script.js" type="module"></script>
-<div></div>
 </body>
 </html>
