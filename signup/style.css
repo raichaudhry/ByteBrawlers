@@ -114,7 +114,7 @@ select {
     color: #000000;
     font-family: Rubik;
     font-size: 90%;
-      border-radius:36px;
+    border-radius: var(--border-radius);
   display:inline-block;
   overflow:hidden;
   background:#cccccc;
@@ -130,4 +130,18 @@ select:hover {
 div.center {
     text-align: center;
    
+}
+input.submit {
+	text-align: center;
+    color: #000000;
+    font-family: Rubik;
+    font-size: 90%;
+  	display:inline-block;
+	border-radius: var(--border-radius);
+  	overflow:hidden;
+  	background:#cccccc;
+  	border:1px solid #cccccc;
+    width: 200px;
+    height: 50px;
+
 }
