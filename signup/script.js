@@ -7,6 +7,6 @@ function signup () {
     let first = document.getElementById("first").value;
     let last = document.getElementById("last").value;
     let name = `${first} ${last}`;
-    console.log("Welcome,", first, last + "!");
+    console.log(`Welcome, ${name}!`);
 }
 startup();
