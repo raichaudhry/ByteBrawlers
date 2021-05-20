@@ -2,7 +2,7 @@ import colorScheme from "https://gavinmorrow.github.io/EasyJS/1/ui/colorScheme/i
 import Popup from "https://gavinmorrow.github.io/EasyJS/1/ui/popup/index.js";
 import cookies from "https://gavinmorrow.github.io/EasyJS/1/cookies/main.js";
 colorScheme.setColors({
-	bg: "#ffffff",
+	bg: "#12c0ff",
 	navBg: "#fefffe",
 	contrastNavBg: "#555855",
 	cardBg: "#efeeef",
@@ -14,7 +14,7 @@ colorScheme.setColors({
 	subText: "#535353",
 	link: "#0000ff",
 }, {
-	bg: "#111111",
+	bg: "#063d6e",
 	navBg: "#181818",
 	contrastNavBg: "#858885",
 	cardBg: "#303130",
