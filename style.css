@@ -18,6 +18,23 @@ body {
 h1, p {
 	margin-bottom: 0;
 }
+h1:first-of-type {
+	color: var(--theme-light-blue);
+	padding: var(--border-radius);
+	border-radius: var(--border-radius);
+	background-color: var(--theme-dark-blue);
+	--box-shadow: calc(var(--border-radius) / 4);
+	--box-shadow-color: var(--theme-dark-blue);
+	box-shadow: 0 0 var(--box-shadow) 0 var(--box-shadow-color);
+	margin: var(--box-shadow);
+}
+@media (prefers-color-scheme: dark) {
+	h1:first-of-type {
+		color: var(--theme-dark-blue);
+		background-color: var(--theme-light-blue);
+		--box-shadow-color: var(--theme-light-blue);
+	}
+}
 
 #login {
 	width: fit-content;
@@ -83,7 +100,7 @@ footer a {
 	transition: text-decoration-color 1s;
 }
 footer a:hover, footer a:active, footer a:focus {
-	text-decoration-color: var(--easyjs-link);
+	text-decoration-color: var(--theme-orange);
 }
 
 .easyjs-popup {
