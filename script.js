@@ -25,15 +25,15 @@ colorScheme.setColors({
 	text: "#ecefed",
 	subText: "#acacac",
 	link: "#adddad",
-});
+},);
 cookies.cookieConsent();
 const Cookie = cookies.Cookie;
+const login = () => {
 
-window.login = async () => {
+}
+window.passInfo = async () => {
 	const username = document.getElementById("username");
 	const pass = document.getElementById("pass");
-	const pop = document.getElementById("error");
-	const wrapper = document.getElementById("error").parentElement;
 	const passHashed = await fetch(`/users/${username.value}/pass.txt`).then(r => r.text()).catch(e => `${e}`);
 	const hash = string => {
 		let output = "";
@@ -45,12 +45,15 @@ window.login = async () => {
 		return output;
 	};
 	const popupOptions = [2500, true];
-	const popup = new Popup("Please enter the correct username and password.", ...popupOptions);
-	setTimeout(() => {
+	const popup1 = new Popup("Logged in!", ...popupOptions);
+	const popup2 = new Popup("Please enter the correct username and password.", ...popupOptions);
+	setTimeout(async () => {
 		if (passHashed == hash(pass.value)) {
-			location.href = "/launcher/";
+			await popup1.show();
+			await popup1.hide();
+			location.replace("/launcher/");
 		}
-		else popup.show();
+		else popup2.show();
 	}, 100);
 }
 
