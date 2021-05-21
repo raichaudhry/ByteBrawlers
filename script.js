@@ -18,7 +18,7 @@ colorScheme.setColors({
 	navBg: "#043b6c",
 	contrastNavBg: "#10befd",
 	cardBg: "#265d8e",
-	buttonBg: "#366d9e",
+	buttonBg: "#32699a",
 	divideBg: "#d3d3d3",
 	alertBg: "#aaaa00",
 
