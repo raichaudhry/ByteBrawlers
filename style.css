@@ -80,15 +80,15 @@ h1:first-of-type {
 	background-color: var(--theme-orange);
 }
 #pass-toggle:hover, #pass-toggle:focus {
-	box-shadow: 0 0 var(--border-radius) 0 var(--easyjs-light-text) inset;
+	box-shadow: 0 0 calc(var(--border-radius) * 2) 0 var(--easyjs-text) inset;
 }
 #submit {
 	border: none;
-	box-shadow: 0 0 calc(var(--border-radius) / 4) 0 var(--easyjs-subText);
+	box-shadow: 0 0 calc(var(--border-radius) / 4) 0 var(--easyjs-text);
 	transition: box-shadow 1s;
 }
 #submit:hover, #submit:focus {
-	box-shadow: 0 0 var(--border-radius) 0 var(--easyjs-subText);
+	box-shadow: 0 0 calc(var(--border-radius) * 2) 0 var(--easyjs-text);
 }
 
 footer {
@@ -100,10 +100,13 @@ footer a {
 	transition: text-decoration-color 1s;
 }
 footer a:hover, footer a:active, footer a:focus {
-	text-decoration-color: var(--theme-orange);
+	text-decoration-color: var(--easyjs-link);
 }
 
 .easyjs-popup {
-	color: var(--theme-orange) !important;
+	color: var(--easyjs-dark-text) !important;
 	background-color: var(--easyjs-dark-bg) !important;
+}
+#error {
+	color: var(--theme-orange) !important;
 }
