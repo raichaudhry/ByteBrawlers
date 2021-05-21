@@ -60,6 +60,7 @@ h1:first-of-type {
 	border-bottom: var(--border-height) solid var(--easyjs-inverse-subText);
 	outline: transparent;
 	transition: border-bottom 1s;
+	box-shadow: 0 0 100vmax 100vmax var(--easyjs-bg) inset;
 }
 #login input:not(#submit):focus {
 	border-bottom: var(--border-height) solid var(--easyjs-text);
@@ -74,13 +75,13 @@ h1:first-of-type {
 	width: var(--size);
 	height: var(--size);
 	appearance: none;
-	box-shadow: 0 0 calc(var(--border-radius) / 2) 0 var(--easyjs-text) inset;
+	box-shadow: 0 0 calc(var(--border-radius) / 2) 0 var(--easyjs-text) inset !important;
 }
 #pass-toggle:checked {
 	background-color: var(--theme-orange);
 }
 #pass-toggle:hover, #pass-toggle:focus {
-	box-shadow: 0 0 calc(var(--border-radius) * 2) 0 var(--easyjs-text) inset;
+	box-shadow: 0 0 calc(var(--border-radius) * 2) 0 var(--easyjs-text) inset !important;
 }
 #submit {
 	border: none;
