@@ -1,6 +1,8 @@
 import "/ui.js";
 import Popup from "https://gavinmorrow.github.io/EasyJS/1/ui/popup/index.js";
 import cookies from "https://gavinmorrow.github.io/EasyJS/1/cookies/main.js";
+import ili from "/ili.js";
+
 cookies.cookieConsent();
 const Cookie = cookies.Cookie;
 window.passInfo = async () => {
@@ -17,16 +19,16 @@ window.passInfo = async () => {
 		return output;
 	};
 	const popupOptions = [2500, true];
-	const popup1 = new Popup("Logged in!", ...popupOptions, "in");
+	const popup1 = new Popup(`Hello, ${Cookie.get("ee-rp1").value === "f" ? "Player 1" : username.value}`, popupOptions[0]*100, false, "in");
 	const popup2 = new Popup("Please enter the correct username and password.", ...popupOptions, "error");
 	setTimeout(async () => {
 		if (passHashed == hash(pass.value)) {
 			const month = 1000*60*60*24*7*4;
 			new Cookie("username", username.value, new Date(Date.now()+month).toUTCString());
 			new Cookie("pass", hash(pass.value), new Date(Date.now()+month).toUTCString());
-			await popup1.show();
-			await popup1.hide();
-			location.replace("/launcher/");
+			popup1.wrapper.style.background = "black";
+			popup1.show();
+			setTimeout(() => location.replace("/launcher/"), popupOptions[0]);
 		} else popup2.show();
 	}, 100);
 }
@@ -42,3 +44,7 @@ passToggle.addEventListener("change", e => {
 	}
 });
 addEventListener("load", () => passToggle.style.setProperty("--size", getComputedStyle(document.getElementById("pass-toggle-label")).fontSize));
+
+(async () => {
+	if (await ili()) location.replace("/launcher");
+})();
