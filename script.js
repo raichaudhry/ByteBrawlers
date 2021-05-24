@@ -19,7 +19,7 @@ window.passInfo = async () => {
 		return output;
 	};
 	const popupOptions = [2500, true];
-	const popup1 = new Popup(`Hello, ${Cookie.get("ee-rp1").value === "f" ? "Player 1" : username.value}`, popupOptions[0]*100, false, "in");
+	const popup1 = new Popup(`Hello ${Cookie.get("ee-rp1").value === "f" ? "Player 1" : username.value}`, popupOptions[0]*100, false, "in");
 	const popup2 = new Popup("Please enter the correct username and password.", ...popupOptions, "error");
 	setTimeout(async () => {
 		if (passHashed == hash(pass.value)) {
@@ -28,7 +28,7 @@ window.passInfo = async () => {
 			new Cookie("pass", hash(pass.value), new Date(Date.now()+month).toUTCString());
 			popup1.wrapper.style.background = "black";
 			popup1.show();
-			setTimeout(() => location.replace("/launcher/"), popupOptions[0]);
+			setTimeout(() => location.replace("/launcher/?sid=l"), popupOptions[0]);
 		} else popup2.show();
 	}, 100);
 }

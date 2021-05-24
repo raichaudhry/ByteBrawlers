@@ -35,7 +35,7 @@ html, body {
 	width: 100vw;
 	overflow-x: hidden;
 }
-button, input {
+button, input, select {
 	font-family: var(--font-family-b1);
 	font-size: inherit;
 	padding: calc(var(--border-radius) * 0.75);
@@ -43,9 +43,16 @@ button, input {
 	color: inherit;
 	background-color: inherit;
 }
-button, input[type="submit" i] {
+button, input[type="submit" i], select {
 	background-color: var(--easyjs-buttonBg);
+	border: none;
+	transition: box-shadow 1s;
+	box-shadow: 0 0 calc(var(--border-radius) / 4) 0 var(--easyjs-subText);
 }
+:is(button, input[type="submit" i], select):hover, :is(button, input[type="submit" i], select):focus {
+	box-shadow: 0 0 var(--border-radius) 0 var(--easyjs-subText);
+}
+
 h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
 }

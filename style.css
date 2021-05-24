@@ -27,6 +27,7 @@ h1:first-of-type {
 	--box-shadow-color: var(--theme-dark-blue);
 	box-shadow: 0 0 var(--box-shadow) 0 var(--box-shadow-color);
 	margin: var(--box-shadow);
+	font-family: var(--font-family-h1a);
 }
 @media (prefers-color-scheme: dark) {
 	h1:first-of-type {

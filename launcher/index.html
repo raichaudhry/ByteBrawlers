@@ -6,9 +6,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Launcher - ByteBrawlers</title>
 	<link rel="stylesheet" href="./style.css">
+	<script src="seamless.js" type="module"></script>
 </head>
 <body>
 	<h1 id="banner">ByteBrawlers</h1>
-	<script src="./script.js" type="module"></script>
+	<section id="main">
+		<div>
+			<select id="version" title="Version Number">
+				<option selected>0.0</option>
+			</select>
+			<button id="play">Play</button>
+		</div>
+	</section>
+
+	<script src="./script.js" type="module" defer></script>
 </body>
 </html>
