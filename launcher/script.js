@@ -5,15 +5,24 @@ const {cookieConsent, Cookie} = cookies;
 cookieConsent();
 
 const main = () => {
+	const versions = document.getElementById("version");
+	const widgets = document.getElementById("widgets");
+	const play = document.getElementById("play");
 	// Add prefix
-	for (const option of document.getElementById("version").querySelectorAll("option")) {
-		option.textContent = `v${option.textContent}`;
+	for (const version of versions.querySelectorAll("option")) {
+		version.textContent = `v${version.textContent}`;
 	}
 	// Functionality
-	document.getElementById("play").addEventListener("click", () => {
+	play.addEventListener("click", () => {
 		// Start Game
+		widgets.setAttribute("data-hidden", "");
 	});
 }
+const resize = () => {
+	// Prepare Widgets 
+	widgets.style.right = `${innerWidth - (widgets.offsetLeft + widgets.offsetWidth)}px`;
+}
+addEventListener("resize", resize);
 
 (async () => {
 	if (await ili()) {

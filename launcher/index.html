@@ -18,18 +18,17 @@
 			<button id="play">Play</button>
 		</div>
 	</section>
-	<nav id="widgets">
-		<section class="widget" id="profile">
-			Your Profile
-		</section>
-	</nav>
+	<div id="widgets-wrapper">
+		<button id="hamburger"></button>
+		<nav id="widgets">
+			<section class="widget" id="profile">
+				<h1>Profile</h1>
+			</section>
+		</nav>
+	</div>
 
-	<script src="./script.js" type="module" async></script>
-	<script defer>
-		const widgetCss = document.createElement("link");
-		widgetCss.rel = "stylesheet";
-		widgetCss.href = "./widgets.css";
-		document.head.appendChild(widgetCss);
+	<script src="./script.js" type="module"></script>
+	<script src="./widgets.js" defer>
 	</script>
 </body>
 </html>
