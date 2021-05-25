@@ -13,12 +13,23 @@
 	<section id="main">
 		<div>
 			<select id="version" title="Version Number">
-				<option selected>0.0</option>
+				<option>0.0</option>
 			</select>
 			<button id="play">Play</button>
 		</div>
 	</section>
+	<nav id="widgets">
+		<section class="widget" id="profile">
+			Your Profile
+		</section>
+	</nav>
 
-	<script src="./script.js" type="module" defer></script>
+	<script src="./script.js" type="module" async></script>
+	<script defer>
+		const widgetCss = document.createElement("link");
+		widgetCss.rel = "stylesheet";
+		widgetCss.href = "./widgets.css";
+		document.head.appendChild(widgetCss);
+	</script>
 </body>
 </html>

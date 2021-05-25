@@ -1,0 +1,25 @@
+#widgets::before {
+	content: " ";
+	background-color: var(--easyjs-cardBg);
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	opacity: 0.75;
+	border-radius: var(--border-radius);
+	z-index: -1;
+}
+#widgets {
+	position: fixed;
+	top: var(--border-radius);
+	left: var(--border-radius);
+	bottom: var(--border-radius);
+	border-radius: var(--border-radius);
+	padding: var(--border-radius);
+	z-index: 100000000;
+	font-size: xxx-large;
+}
+#widgets>* {
+	font-size: smaller;
+}
