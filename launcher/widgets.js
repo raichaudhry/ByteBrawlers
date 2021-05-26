@@ -21,6 +21,6 @@ document.getElementById("hamburger").addEventListener("click", () => {
 	else close();
 });
 addEventListener("click", e => {
-	// If the element clicked is NOT a decendant of (or actually is) widgetsWrapper, then hide the widgets. 
+	// If you click outside of the widgets, then close the widgets. 
 	if (!(widgetsWrapper.contains(e.target) || e.target == widgetsWrapper)) close();
 });
