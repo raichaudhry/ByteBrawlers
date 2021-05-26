@@ -1,7 +1,7 @@
 import "/ui.js";
 import Popup from "https://gavinmorrow.github.io/EasyJS/1/ui/popup/index.js";
 import cookies from "https://gavinmorrow.github.io/EasyJS/1/cookies/main.js";
-import ili from "/ili.js";
+import ili from "/js/ili.js";
 
 cookies.cookieConsent();
 const Cookie = cookies.Cookie;
