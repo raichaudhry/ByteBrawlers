@@ -3,7 +3,7 @@ import Cookie from "https://gavinmorrow.github.io/EasyJS/1/cookies/cookie/index.
 const signout = () => {
 	Cookie.get("username").delete();
 	Cookie.get("pass").delete();
-	location.reload();
+	location.replace("/");
 	return true;
 }
 document.getElementById("signout").addEventListener("click", signout);

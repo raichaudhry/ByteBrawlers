@@ -44,11 +44,31 @@ html {
 }
 
 #signout {
-	background-color: var(--theme-orange);
+	background-color: yellow;
+	color: var(--theme-orange);
 	transition: box-shadow 1s;
-	box-shadow: 0 0 calc(var(--border-radius) / 4) 0 var(--easyjs-dark-contrastNavBg) inset;
+	box-shadow: 0 0 calc(var(--border-radius) / 4) 0 var(--easyjs-light-text) inset;
 	width: 100%;
 }
 #signout:focus, #signout:hover {
-	box-shadow: 0 0 var(--border-radius) 0 var(--easyjs-dark-contrastNavBg) inset;
+	box-shadow: 0 0 var(--border-radius) 0 var(--easyjs-light-text) inset;
+}
+
+#profile::before {
+	--title: "Profile";
+}
+#profile>p {
+	border-radius: var(--border-radius);
+	padding: var(--border-radius);
+	margin: var(--border-radius);
+	background-color: var(--easyjs-light-buttonBg);
+}
+#profile>p>div {
+	display: inline-block;
+}
+#profile>p>div:first-of-type {
+	text-transform: capitalize;
+}
+#profile>p>div:last-of-type {
+	text-transform: capitalize;
 }
