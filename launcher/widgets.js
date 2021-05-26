@@ -1,17 +1,22 @@
 const widgetCss = document.createElement("link");
+const widgets = document.getElementById("widgets");
+const widgetsWrapper = document.getElementById("widgets-wrapper");
+
+// Add widget stylesheet
 widgetCss.rel = "stylesheet";
 widgetCss.href = "./widgets.css";
 document.head.appendChild(widgetCss);
 
-const widgets = document.getElementById("widgets");
-const widgetsWrapper = document.getElementById("widgets-wrapper");
-
+// Abstractions
 const close = () => widgetsWrapper.setAttribute("data-hidden", "");
 const open = () => widgetsWrapper.removeAttribute("data-hidden");
 const isClosed = () => widgetsWrapper.getAttribute("data-hidden") == "";
 const isOpen = () => !isClosed();
 
+// Functionality
 document.getElementById("hamburger").addEventListener("click", () => {
+	// Open the widgets if it is not aready open, otherwise close them. 
+	// Although you can only see the button if the widgets are closed, you can keep your selection on it (so this is better for accessibility). 
 	if (isClosed()) open();
 	else close();
 });
