@@ -7,7 +7,7 @@
 	text-align: left;
 	padding: var(--border-radius);
 }
-#widgets::before {
+/* #widgets::before {
 	content: " ";
 	background-color: var(--easyjs-light-contrastNavBg);
 	position: absolute;
@@ -15,10 +15,11 @@
 	left: 0;
 	bottom: 0;
 	right: 0;
+	height: 100%;
 	opacity: 0.75;
 	border-radius: var(--border-radius);
 	z-index: -1;
-}
+} */
 #widgets {
 	position: fixed;
 	top: var(--border-radius);
@@ -33,6 +34,9 @@
 	transition: left var(--transition-speed);
 	text-align: center;
 	color: var(--easyjs-light-text);
+	overflow-x: hidden;
+	overflow-y: scroll;
+	background-color: var(--easyjs-light-contrastNavBg);
 }
 #widgets-wrapper[data-hidden] #widgets {
 	--pos: calc(var(--width) + var(--border-radius) * 3);
