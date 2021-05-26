@@ -1,6 +1,6 @@
 #widgets::before {
 	content: " ";
-	background-color: var(--easyjs-contrastNavBg);
+	background-color: var(--easyjs-light-contrastNavBg);
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -15,26 +15,26 @@
 	top: var(--border-radius);
 	left: var(--border-radius);
 	bottom: var(--border-radius);
-	right: 75vw;
 	border-radius: var(--border-radius);
 	padding: var(--border-radius);
 	font-size: xx-large;
 	box-shadow: 0 0 calc(var(--border-radius) / 4) 0 var(--easyjs-text);
-	min-width: fit-content;
 	width: 25vw;
-	transition: right 2s;
+	transition: left 1s ease-in-out;
 	text-align: center;
+	color: var(--easyjs-light-text);
 }
 #widgets[data-hidden] {
-	right: calc(100vw + var(--border-radius)) !important;
-	left: auto;
+	--pos: calc(25vw + var(--border-radius) * 3);
+	left: calc(0px - var(--pos));
 }
 .widget {
 	font-size: smaller;
-	background-color: var(--easyjs-cardBg);
+	background-color: var(--easyjs-light-cardBg);
 	border-radius: var(--border-radius);
 	padding: var(--border-radius);
-	box-shadow: 0 0 calc(var(--border-radius) / 4) 0 var(--easyjs-contrastNavBg);
+	box-shadow: 0 0 calc(var(--border-radius) / 4) 0 var(--easyjs-dark-contrastNavBg);
+	z-index: 1;
 }
 #widgets-wrapper {
 	position: fixed;
@@ -45,11 +45,19 @@
 	padding: var(--border-radius);
 }
 #hamburger {
+	--size: calc(var(--border-radius) * 5);
+	width: var(--size);
+	height: var(--size);
+	z-index: 2;
+	position: absolute;
 	background-image: url("/imgs/hamburger-icon.svg");
 	background-size: contain;
 	background-repeat: no-repeat;
-	font-size: calc(var(--border-radius) * 5);
-	border-radius: 0;
-	box-shadow: none;
-	background-color: transparent;
+	box-shadow: 0 0 calc(var(--border-radius) / 4) 0 var(--easyjs-text);
+	transition: box-shadow 1s;
+	background-color: var(--easyjs-light-buttonBg);
+	outline: transparent;
+}
+#hamburger:hover, #hamburger:focus {
+	box-shadow: 0 0 var(--border-radius) 0 var(--easyjs-text);
 }

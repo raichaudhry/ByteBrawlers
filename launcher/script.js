@@ -19,8 +19,7 @@ const main = () => {
 	});
 }
 const resize = () => {
-	// Prepare Widgets 
-	widgets.style.right = `${innerWidth - (widgets.offsetLeft + widgets.offsetWidth)}px`;
+	
 }
 addEventListener("resize", resize);
 
