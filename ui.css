@@ -1,4 +1,7 @@
 @import "https://gavinmorrow.com/google-fonts/Major Mono Display|Bungee Inline|Jura|Comfortaa/swap";
+* {
+	outline-color: var(--theme-4);
+}
 :root {
 	--theme-black: #242424;
 	--theme-dark-blue: #063d6e;
@@ -38,7 +41,7 @@ html, body {
 button, input, select {
 	font-family: var(--font-family-b1);
 	font-size: inherit;
-	padding: calc(var(--border-radius) * 0.75);
+	padding: calc(var(--border-radius) * 0.5);
 	border-radius: var(--border-radius);
 	color: inherit;
 	background-color: inherit;

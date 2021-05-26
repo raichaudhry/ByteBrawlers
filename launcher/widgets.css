@@ -24,7 +24,7 @@
 	text-align: center;
 	color: var(--easyjs-light-text);
 }
-#widgets[data-hidden] {
+#widgets-wrapper[data-hidden] #widgets {
 	--pos: calc(25vw + var(--border-radius) * 3);
 	left: calc(0px - var(--pos));
 }
@@ -34,7 +34,6 @@
 	border-radius: var(--border-radius);
 	padding: var(--border-radius);
 	box-shadow: 0 0 calc(var(--border-radius) / 4) 0 var(--easyjs-dark-contrastNavBg);
-	z-index: 1;
 }
 #widgets-wrapper {
 	position: fixed;
@@ -45,19 +44,19 @@
 	padding: var(--border-radius);
 }
 #hamburger {
-	--size: calc(var(--border-radius) * 5);
-	width: var(--size);
-	height: var(--size);
-	z-index: 2;
-	position: absolute;
-	background-image: url("/imgs/hamburger-icon.svg");
-	background-size: contain;
-	background-repeat: no-repeat;
-	box-shadow: 0 0 calc(var(--border-radius) / 4) 0 var(--easyjs-text);
-	transition: box-shadow 1s;
+	font-size: xxx-large;
+	--border-radius: 0.25em;
+	position: fixed;
+	transition: box-shadow 1s, left 1s;
 	background-color: var(--easyjs-light-buttonBg);
-	outline: transparent;
+	color: var(--easyjs-light-text);
+	top: var(--border-radius);
+	left: -2.5em;
+	padding-top: 0;
+	padding-bottom: 0;
+	line-height: 0.9em;
+	vertical-align: middle;
 }
-#hamburger:hover, #hamburger:focus {
-	box-shadow: 0 0 var(--border-radius) 0 var(--easyjs-text);
+#widgets-wrapper[data-hidden] #hamburger {
+	left: var(--border-radius);
 }

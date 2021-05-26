@@ -7,6 +7,7 @@ cookieConsent();
 const main = () => {
 	const versions = document.getElementById("version");
 	const widgets = document.getElementById("widgets");
+	const widgetsWrapper = document.getElementById("widgets-wrapper");
 	const play = document.getElementById("play");
 	// Add prefix
 	for (const version of versions.querySelectorAll("option")) {
@@ -15,7 +16,6 @@ const main = () => {
 	// Functionality
 	play.addEventListener("click", () => {
 		// Start Game
-		widgets.setAttribute("data-hidden", "");
 	});
 }
 const resize = () => {
