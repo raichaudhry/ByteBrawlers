@@ -4,7 +4,7 @@ const widgetsWrapper = document.getElementById("widgets-wrapper");
 
 // Add widget stylesheet
 widgetCss.rel = "stylesheet";
-widgetCss.href = "./widgets.css";
+widgetCss.href = "./widgets/style.css";
 document.head.appendChild(widgetCss);
 
 // Abstractions

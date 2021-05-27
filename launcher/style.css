@@ -47,7 +47,6 @@ html {
 	background-color: yellow;
 	color: var(--theme-orange);
 	transition: box-shadow 1s;
-	box-shadow: 0 0 calc(var(--border-radius) / 4) 0 var(--easyjs-light-text) inset;
 	width: 100%;
 }
 #signout:focus, #signout:hover {
