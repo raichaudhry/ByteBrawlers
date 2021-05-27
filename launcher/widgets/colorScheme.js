@@ -1,10 +1,28 @@
 import colorScheme from "https://gavinmorrow.github.io/EasyJS/1/ui/colorScheme/index.js";
 
-const widgets = document.getElementById("widgets");
-const widget = document.createElement("section");
+colorScheme.autoChange = false;
 
-widget.id = "colorScheme";
-widget.className = "widget";
-widget.innerHTML = "Color Scheme"; // Make this the title
+const widget = document.getElementById("cs-widget");
+const inputs = widget.querySelectorAll("input");
 
-widgets.appendChild(widget);
+const updateCS = () => {
+	for (const input of inputs) {
+		if (input.checked) {
+			switch (input.value) {
+				case "light":
+					colorScheme.set(true);
+					break;
+				case "dark":
+					colorScheme.set(false);
+					break;
+				default:
+					colorScheme.reset();
+			}
+		}
+	}
+}
+updateCS();
+for (const input of inputs) {
+	input.addEventListener("change", updateCS);
+}
+matchMedia("(prefers-color-scheme: light)").addEventListener("change", updateCS);
