@@ -9,6 +9,7 @@ const main = () => {
 	const play = document.getElementById("play");
 	// Add prefix
 	for (const v of version.querySelectorAll("option")) {
+		v.value = v.textContent;
 		v.textContent = `v${v.textContent}`;
 	}
 	// Functionality
