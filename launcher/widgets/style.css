@@ -6,20 +6,9 @@
 	left: 0;
 	text-align: left;
 	padding: var(--border-radius);
+	transition: opacity 1s;
+	opacity: 1 !important;
 }
-/* #widgets::before {
-	content: " ";
-	background-color: var(--easyjs-light-contrastNavBg);
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	height: 100%;
-	opacity: 0.75;
-	border-radius: var(--border-radius);
-	z-index: -1;
-} */
 #widgets {
 	position: fixed;
 	top: var(--border-radius);
@@ -36,23 +25,28 @@
 	color: var(--easyjs-light-text);
 	overflow-x: hidden;
 	overflow-y: scroll;
-	background-color: var(--easyjs-light-contrastNavBg);
+	background-color: rgba(var(--easyjs-rgb-light-contrastNavBg), 0.75);
 }
 #widgets-wrapper[data-hidden] #widgets {
 	--pos: calc(var(--width) + var(--border-radius) * 3);
 	left: calc(0px - var(--pos));
-}
-.widget::before {
-	content: var(--title);
-	font-size: larger;
 }
 .widget {
 	font-size: smaller;
 	background-color: var(--easyjs-light-cardBg);
 	border-radius: var(--border-radius);
 	padding: var(--border-radius);
-	box-shadow: 0 0 calc(var(--border-radius) / 2) 0 var(--easyjs-dark-contrastNavBg);
+	box-shadow: 0 0 calc(var(--border-radius) / 2) 0 var(--easyjs-light-text) inset;
 	margin: var(--border-radius) 0;
+	position: relative;
+}
+.widget>.widget-title {
+	font-size: larger;
+	margin: 0;
+	border-radius: var(--border-radius);
+	padding: var(--border-radius);
+	background-color: rgba(var(--easyjs-rgb-light-contrastNavBg), 0.75);
+	color: var(--easyjs-dark-text);
 }
 #hamburger {
 	font-size: xxx-large;

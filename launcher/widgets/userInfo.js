@@ -10,8 +10,4 @@ for (const name in parsed) {
 	document.getElementById("profile").appendChild(elem);
 }
 
-const profileStyle = document.createElement("style");
-profileStyle.innerHTML = `#profile::before {
-	--title: '${username} - Profile';
-}`;
-document.head.appendChild(profileStyle);
+document.getElementById("username-output").innerHTML = username;

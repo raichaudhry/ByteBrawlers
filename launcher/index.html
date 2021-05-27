@@ -18,17 +18,31 @@
 			<button id="play">Play</button>
 		</div>
 	</section>
-	<div id="widgets-wrapper" data-hidden>
+	<div id="widgets-wrapper" data-hidden style="opacity: 0;">
 		<button id="hamburger">≡</button>
 		<nav id="widgets">
 			<button class="widget" id="signout">Sign Out</button>
-			<section class="widget" id="profile"></section>
+			<section class="widget" id="profile">
+				<h1 class="widget-title"><span id="username-output"></span> - Profile</h1>
+			</section>
+			<section class="widget" id="cs-widget">
+				<h1 class="widget-title">Color Scheme</h1>
+				<div id="cs-widget-inner">
+					<input type="radio" id="cs-auto" name="cs" value="auto" checked>
+					<label for="cs-auto" title="Sync with System">Automatic</label><br>
+					<input type="radio" id="cs-light" name="cs" value="light">
+					<label for="cs-light">Light</label><br>
+					<input type="radio" id="cs-dark" name="cs" value="dark">
+					<label for="cs-dark">Dark</label>
+				</div>
+			</section>
 		</nav>
 	</div>
 
 	<script src="./script.js" type="module"></script>
-	<script src="./widgets.js" type="module"></script>
+	<script src="./widgets/index.js" type="module"></script>
+	<script src="./widgets/userInfo.js" type="module"></script>
+	<script src="./widgets/colorScheme.js" type="module"></script>
 	<script src="/js/signout.js" type="module"></script>
-	<script src="./userInfo.js" type="module"></script>
 </body>
 </html>

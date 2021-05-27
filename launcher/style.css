@@ -47,7 +47,6 @@ html {
 	background-color: yellow;
 	color: var(--theme-orange);
 	transition: box-shadow 1s;
-	box-shadow: 0 0 calc(var(--border-radius) / 4) 0 var(--easyjs-light-text) inset;
 	width: 100%;
 }
 #signout:focus, #signout:hover {
@@ -71,4 +70,25 @@ html {
 }
 #profile>p>div:last-of-type {
 	text-transform: capitalize;
+}
+
+#cs-widget-inner {
+	text-align: left;
+	display: inline-block;
+	vertical-align: middle;
+}
+#cs-widget-inner>input {
+	appearance: none;
+	border-radius: var(--border-radius);
+	padding: calc(var(--border-radius) * 2);
+	background-color: var(--easyjs-light-buttonBg);
+	box-shadow: 0 0 var(--border-radius) 0 var(--easyjs-light-text);
+	font-size: small;
+	transition: background-color 0.25s;
+}
+#cs-widget-inner>input:checked {
+	background-color: var(--easyjs-dark-buttonBg);
+}
+#cs-widget-inner>* {
+	vertical-align: middle;
 }
