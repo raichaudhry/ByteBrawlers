@@ -5,8 +5,30 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Launcher - ByteBrawlers</title>
+	<link rel="stylesheet" href="./style.css">
+	<script src="seamless.js" type="module"></script>
 </head>
 <body>
-	
+	<h1 id="banner">Byte<wbr>Brawlers</h1>
+	<section id="main">
+		<div>
+			<select id="version" title="Version Number">
+				<option>0.0</option>
+			</select>
+			<button id="play">Play</button>
+		</div>
+	</section>
+	<div id="widgets-wrapper" data-hidden>
+		<button id="hamburger">≡</button>
+		<nav id="widgets">
+			<button class="widget" id="signout">Sign Out</button>
+			<section class="widget" id="profile"></section>
+		</nav>
+	</div>
+
+	<script src="./script.js" type="module"></script>
+	<script src="./widgets.js" type="module"></script>
+	<script src="/js/signout.js" type="module"></script>
+	<script src="./userInfo.js" type="module"></script>
 </body>
 </html>

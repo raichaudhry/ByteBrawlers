@@ -1,0 +1,74 @@
+@import "/ui.css";
+
+html {
+	font-size: x-large;
+}
+
+#banner {
+	position: sticky;
+	top: 0;
+	left: 0;
+	right: 0;
+	font: xxx-large var(--font-family-h1a);
+	background-color: var(--easyjs-navBg);
+	margin-top: 0;
+	padding: var(--border-radius);
+	border-radius: var(--border-radius);
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	box-shadow: 0 0 calc(var(--border-radius) / 8) 0 var(--easyjs-text);
+	z-index: 10000;
+}
+#main {
+	font-size: xxx-large;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#main>div {
+	display: inline-block;
+	width: fit-content;
+	height: fit-content;
+}
+
+.easyjs-popup {
+	color: var(--easyjs-dark-text) !important;
+	background-color: var(--easyjs-dark-bg) !important;
+}
+
+#signout {
+	background-color: yellow;
+	color: var(--theme-orange);
+	transition: box-shadow 1s;
+	box-shadow: 0 0 calc(var(--border-radius) / 4) 0 var(--easyjs-light-text) inset;
+	width: 100%;
+}
+#signout:focus, #signout:hover {
+	box-shadow: 0 0 var(--border-radius) 0 var(--easyjs-light-text) inset;
+}
+
+#profile::before {
+	--title: "Profile";
+}
+#profile>p {
+	border-radius: var(--border-radius);
+	padding: var(--border-radius);
+	margin: var(--border-radius);
+	background-color: var(--easyjs-light-buttonBg);
+}
+#profile>p>div {
+	display: inline-block;
+}
+#profile>p>div:first-of-type {
+	text-transform: capitalize;
+}
+#profile>p>div:last-of-type {
+	text-transform: capitalize;
+}

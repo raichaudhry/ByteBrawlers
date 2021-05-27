@@ -1,0 +1,2 @@
+bits 0
+trophies 0

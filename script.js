@@ -1,36 +1,10 @@
-import colorScheme from "https://gavinmorrow.github.io/EasyJS/1/ui/colorScheme/index.js";
+import "/ui.js";
 import Popup from "https://gavinmorrow.github.io/EasyJS/1/ui/popup/index.js";
 import cookies from "https://gavinmorrow.github.io/EasyJS/1/cookies/main.js";
-colorScheme.setColors({
-	bg: "#12c0ff",
-	navBg: "#10befd",
-	contrastNavBg: "#043b6c",
-	cardBg: "#32e0ff",
-	buttonBg: "#22d0ef",
-	divideBg: "#2c2c2c",
-	alertBg: "#ffff00",
+import ili from "/js/ili.js";
 
-	text: "#063d6e",
-	subText: "#535353",
-	link: "#0000ff",
-}, {
-	bg: "#063d6e",
-	navBg: "#043b6c",
-	contrastNavBg: "#10befd",
-	cardBg: "#265d8e",
-	buttonBg: "#32699a",
-	divideBg: "#d3d3d3",
-	alertBg: "#aaaa00",
-
-	text: "#12c0ff",
-	subText: "#acacac",
-	link: "#adddad",
-},);
 cookies.cookieConsent();
 const Cookie = cookies.Cookie;
-const login = () => {
-
-}
 window.passInfo = async () => {
 	const username = document.getElementById("username");
 	const pass = document.getElementById("pass");
@@ -45,15 +19,17 @@ window.passInfo = async () => {
 		return output;
 	};
 	const popupOptions = [2500, true];
-	const popup1 = new Popup("Logged in!", ...popupOptions, "in");
+	const popup1 = new Popup(`Hello ${Cookie.get("ee-rp1").value === "f" ? "Player 1" : username.value}`, popupOptions[0]*100, false, "in");
 	const popup2 = new Popup("Please enter the correct username and password.", ...popupOptions, "error");
 	setTimeout(async () => {
 		if (passHashed == hash(pass.value)) {
-			await popup1.show();
-			await popup1.hide();
-			location.replace("/launcher/");
-		}
-		else popup2.show();
+			const month = 1000*60*60*24*7*4;
+			new Cookie("username", username.value, new Date(Date.now()+month).toUTCString());
+			new Cookie("pass", hash(pass.value), new Date(Date.now()+month).toUTCString());
+			popup1.wrapper.style.background = "black";
+			popup1.show();
+			setTimeout(() => location.replace("/launcher/?sid=l"), popupOptions[0]);
+		} else popup2.show();
 	}, 100);
 }
 
@@ -68,3 +44,7 @@ passToggle.addEventListener("change", e => {
 	}
 });
 addEventListener("load", () => passToggle.style.setProperty("--size", getComputedStyle(document.getElementById("pass-toggle-label")).fontSize));
+
+(async () => {
+	if (await ili()) location.replace("/launcher");
+})();
