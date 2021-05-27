@@ -5,15 +5,16 @@ const {cookieConsent, Cookie} = cookies;
 cookieConsent();
 
 const main = () => {
-	const versions = document.getElementById("version");
+	const version = document.getElementById("version");
 	const play = document.getElementById("play");
 	// Add prefix
-	for (const version of versions.querySelectorAll("option")) {
-		version.textContent = `v${version.textContent}`;
+	for (const v of version.querySelectorAll("option")) {
+		v.textContent = `v${v.textContent}`;
 	}
 	// Functionality
 	play.addEventListener("click", () => {
 		// Start Game
+		location.replace(`/versions/${version.value}/`);
 	});
 }
 
