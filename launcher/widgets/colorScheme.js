@@ -1,7 +1,9 @@
 import colorScheme from "https://gavinmorrow.github.io/EasyJS/1/ui/colorScheme/index.js";
 import Cookie from "https://gavinmorrow.github.io/EasyJS/1/cookies/cookie/index.js";
 
-const csc = new Cookie("cs", "auto");
+const csc = Cookie.get("cs") || new Cookie("cs", "auto");
+document.querySelector(`#cs-widget input[value='${csc.value}']`).setAttribute("checked", "");
+
 colorScheme.autoChange = false;
 
 const widget = document.getElementById("cs-widget");
