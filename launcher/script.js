@@ -1,6 +1,7 @@
 import "/ui.js";
 import ili from "/js/ili.js";
 import cookies from "https://gavinmorrow.github.io/EasyJS/1/cookies/main.js";
+import Popup from "https://gavinmorrow.github.io/EasyJS/1/ui/popup/index.js";
 const {cookieConsent, Cookie} = cookies;
 cookieConsent();
 
@@ -15,7 +16,13 @@ const main = () => {
 	// Functionality
 	play.addEventListener("click", () => {
 		// Start Game
-		location.replace(`/versions/${version.value}/`);
+		const popupOptions = [2500, true];
+		const popup1 = new Popup(`${Cookie.get("ee-rp1").value === "f" ? "" : "Get "}Ready ${Cookie.get("ee-rp1").value === "f" ? "Player 1" : Cookie.get("username").value}`, popupOptions[0]*100, false, "rp1");
+		setTimeout(() => {
+			popup1.wrapper.style.background = "black";
+			popup1.show();
+			setTimeout(() => location.replace(`/versions/${version.value}/`), popupOptions[0]);
+		});
 	});
 }
 
