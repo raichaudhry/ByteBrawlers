@@ -144,3 +144,6 @@ input.submit {
     height: 50px;
 
 }
+input.DISPLAY_NONE {
+	display: none;
+}

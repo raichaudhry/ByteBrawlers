@@ -1,8 +1,8 @@
 function startup () {
-    document.getElementById("challenge2").style.display = "none";
+    // document.getElementById("challenge2").style.display = "none";
 }
-function signup () {
-    document.getElementById("challenge2").style.display = "block";
+function submit () {
+    // document.getElementById("challenge2").style.display = "block";
     document.getElementById("challenge1").style.display = "none";
     let first = document.getElementById("first").value;
     let last = document.getElementById("last").value;
