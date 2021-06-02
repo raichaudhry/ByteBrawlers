@@ -3,7 +3,8 @@
 html {
 	width: 100vw;
 	height: 100vh;
-	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: scroll;
 
 	display: flex;
 	justify-content: center;
@@ -17,6 +18,24 @@ body {
 }
 h1, p {
 	margin-bottom: 0;
+}
+h1:first-of-type {
+	color: var(--theme-light-blue);
+	padding: var(--border-radius);
+	border-radius: var(--border-radius);
+	background-color: var(--theme-dark-blue);
+	--box-shadow: calc(var(--border-radius) / 4);
+	--box-shadow-color: var(--theme-dark-blue);
+	box-shadow: 0 0 var(--box-shadow) 0 var(--box-shadow-color);
+	margin: var(--box-shadow);
+	font-family: var(--font-family-h1a);
+}
+@media (prefers-color-scheme: dark) {
+	h1:first-of-type {
+		color: var(--theme-dark-blue);
+		background-color: var(--theme-light-blue);
+		--box-shadow-color: var(--theme-light-blue);
+	}
 }
 
 #login {
@@ -43,6 +62,7 @@ h1, p {
 	border-bottom: var(--border-height) solid var(--easyjs-inverse-subText);
 	outline: transparent;
 	transition: border-bottom 1s;
+	box-shadow: 0 0 100vmax 100vmax var(--easyjs-bg) inset;
 }
 #login input:not(#submit):focus {
 	border-bottom: var(--border-height) solid var(--easyjs-text);
@@ -57,13 +77,13 @@ h1, p {
 	width: var(--size);
 	height: var(--size);
 	appearance: none;
-	box-shadow: 0 0 calc(var(--border-radius) / 2) 0 var(--easyjs-text) inset;
+	box-shadow: 0 0 calc(var(--border-radius) / 2) 0 var(--easyjs-text) inset !important;
 }
 #pass-toggle:checked {
-	background-color: var(--easyjs-inverse-divideBg);
+	background-color: var(--theme-orange);
 }
 #pass-toggle:hover, #pass-toggle:focus {
-	box-shadow: 0 0 var(--border-radius) 0 var(--easyjs-text) inset;
+	box-shadow: 0 0 calc(var(--border-radius) * 2) 0 var(--easyjs-text) inset !important;
 }
 #submit {
 	border: none;
@@ -71,7 +91,7 @@ h1, p {
 	transition: box-shadow 1s;
 }
 #submit:hover, #submit:focus {
-	box-shadow: 0 0 var(--border-radius) 0 var(--easyjs-text);
+	box-shadow: 0 0 calc(var(--border-radius) * 2) 0 var(--easyjs-text);
 }
 
 footer {
@@ -84,4 +104,12 @@ footer a {
 }
 footer a:hover, footer a:active, footer a:focus {
 	text-decoration-color: var(--easyjs-link);
+}
+
+.easyjs-popup {
+	color: var(--easyjs-dark-text) !important;
+	background-color: var(--easyjs-dark-bg) !important;
+}
+#error {
+	color: var(--theme-orange) !important;
 }

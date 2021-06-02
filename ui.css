@@ -1,6 +1,17 @@
 @import "https://gavinmorrow.com/google-fonts/Major Mono Display|Bungee Inline|Jura|Comfortaa/swap";
-@import "https://gavinmorrow.github.io/EasyJS/1/ui/colorScheme/style.css";
+* {
+	outline-color: var(--theme-4);
+}
 :root {
+	--theme-black: #242424;
+	--theme-dark-blue: #063d6e;
+	--theme-light-blue: #12c0ff;
+	--theme-orange: #FF4507;
+	--theme-1: #242424;
+	--theme-2: #063d6e;
+	--theme-3: #12c0ff;
+	--theme-4: #FF4507;
+
 	--font-family-b1: "Jura", "Comfortaa", sans-serif;
 	--font-family-b2: "Comfortaa", "Jura", sans-serif;
 	--font-family-h1: "Major Mono Display", monospace;
@@ -27,17 +38,29 @@ html, body {
 	width: 100vw;
 	overflow-x: hidden;
 }
-button, input {
+button, input, select {
 	font-family: var(--font-family-b1);
 	font-size: inherit;
-	padding: calc(var(--border-radius) * 0.75);
+	padding: calc(var(--border-radius) * 0.5);
 	border-radius: var(--border-radius);
 	color: inherit;
 	background-color: inherit;
 }
-button, input[type="submit" i] {
+button, input[type="submit" i], select {
 	background-color: var(--easyjs-buttonBg);
+	border: none;
+	transition: box-shadow 1s;
+	box-shadow: 0 0 calc(var(--border-radius) / 4) 0 var(--easyjs-subText);
 }
+:is(button, input[type="submit" i], select):hover, :is(button, input[type="submit" i], select):focus {
+	box-shadow: 0 0 var(--border-radius) 0 var(--easyjs-subText);
+}
+
 h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
+}
+
+.rounded {
+	padding: calc(var(--border-radius) * 0.5);
+	border-radius: var(--border-radius);
 }

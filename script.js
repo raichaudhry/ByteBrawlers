@@ -1,39 +1,13 @@
-import colorScheme from "https://gavinmorrow.github.io/EasyJS/1/ui/colorScheme/index.js";
+import "/ui.js";
 import Popup from "https://gavinmorrow.github.io/EasyJS/1/ui/popup/index.js";
 import cookies from "https://gavinmorrow.github.io/EasyJS/1/cookies/main.js";
-colorScheme.setColors({
-	bg: "#ffffff",
-	navBg: "#fefffe",
-	contrastNavBg: "#555855",
-	cardBg: "#efeeef",
-	buttonBg: "#e0e1e0",
-	divideBg: "#2c2c2c",
-	alertBg: "#ffff00",
+import ili from "/js/ili.js";
 
-	text: "#131012",
-	subText: "#535353",
-	link: "#0000ff",
-}, {
-	bg: "#111111",
-	navBg: "#181818",
-	contrastNavBg: "#858885",
-	cardBg: "#303130",
-	buttonBg: "#383938",
-	divideBg: "#d3d3d3",
-	alertBg: "#aaaa00",
-
-	text: "#ecefed",
-	subText: "#acacac",
-	link: "#adddad",
-});
 cookies.cookieConsent();
 const Cookie = cookies.Cookie;
-
-window.login = async () => {
+window.passInfo = async () => {
 	const username = document.getElementById("username");
 	const pass = document.getElementById("pass");
-	const pop = document.getElementById("error");
-	const wrapper = document.getElementById("error").parentElement;
 	const passHashed = await fetch(`/users/${username.value}/pass.txt`).then(r => r.text()).catch(e => `${e}`);
 	const hash = string => {
 		let output = "";
@@ -45,12 +19,17 @@ window.login = async () => {
 		return output;
 	};
 	const popupOptions = [2500, true];
-	const popup2 = new Popup("Please enter the correct username and password.", ...popupOptions);
-	setTimeout(() => {
+	const popup1 = new Popup(`Hello ${Cookie.get("ee-rp1").value === "f" ? "Player 1" : username.value}`, popupOptions[0]*100, false, "in");
+	const popup2 = new Popup("Please enter the correct username and password.", ...popupOptions, "error");
+	setTimeout(async () => {
 		if (passHashed == hash(pass.value)) {
-			location.href = "/launcher/";
-		}
-		else popup2.show();
+			const month = 1000*60*60*24*7*4;
+			new Cookie("username", username.value, new Date(Date.now()+month).toUTCString());
+			new Cookie("pass", hash(pass.value), new Date(Date.now()+month).toUTCString());
+			popup1.wrapper.style.background = "black";
+			popup1.show();
+			setTimeout(() => location.replace("/launcher/?sid=l"), popupOptions[0]);
+		} else popup2.show();
 	}, 100);
 }
 
@@ -65,3 +44,7 @@ passToggle.addEventListener("change", e => {
 	}
 });
 addEventListener("load", () => passToggle.style.setProperty("--size", getComputedStyle(document.getElementById("pass-toggle-label")).fontSize));
+
+(async () => {
+	if (await ili()) location.replace("/launcher");
+})();

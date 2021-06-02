@@ -4,15 +4,15 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>ByteBrawlers</title>
+	<title>Login - ByteBrawlers</title>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<h1>ByteBrawlers</h1>
-	<p>Sign in to Continue</p>
-	<form action="javascript:login()" method="get" id="login">
+	<p>Log in to Continue</p>
+	<form action="javascript:passInfo()" method="get" id="login">
 		<section>
-			<label for="username">Username:</label>
+			<label for="username">Username:</label> 
 			<input id="username" type="text" autocomplete="username">
 		</section>
 
@@ -29,6 +29,6 @@
 	<hr>
 	<footer>Don't have an account? <a href = "/signup/">Sign up</a> to continue!</footer>
 	<div class="popup-wrapper"><div class="popup" id="error"></div></div>
-	<script src="script.js" type="module" async></script>
+	<script src="script.js" type="module" defer></script>
 </body>
 </html>
