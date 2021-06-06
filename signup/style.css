@@ -147,3 +147,6 @@ input.submit {
 input.DISPLAY_NONE {
 	display: none;
 }
+#info {
+	text-align: left;
+}

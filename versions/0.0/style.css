@@ -1,0 +1,6 @@
+@import "/ui.css";
+
+.easyjs-popup {
+	color: var(--easyjs-dark-text) !important;
+	background-color: var(--easyjs-dark-bg) !important;
+}

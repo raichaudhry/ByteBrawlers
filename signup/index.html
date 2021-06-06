@@ -11,7 +11,7 @@
 <div id = "challenge1">
 	<h1>ByteBrawlers</h1>
 	<h2>Sign Up</h2>
-	<script src="script.js" type="module"></script>
+	<div id = "info">
 	<form action="javascript:submit()" id="signup">
 		<section>
 			<label for="first">First Name:</label>
@@ -21,22 +21,42 @@
 			<label for="last">Last Name:</label>
 			<input id="last" type="text" autocomplete="family-name">
 		</section>
-		<div id = "username">
-		<span>Username:</span>
+		<section>
+			<label for="username">Username:</label>
+			<input id="username" type="text" autocomplete="">
+		</section>
+		<section>
+			<label for="email">E-mail:</label>
+			<input id="email" type="email" autocomplete="email">
+		</section>
+		<section>
+			<label for="email">Password:</label>
+			<input id="pass" type="password" autocomplete="">
+		</section>
+		<section>
+			<label for="email">Confirm Password:</label>
+			<input id="confirmpass" type="password" autocomplete="">
+		</section>
+		</div>
+			<!-- <input id="username" type="text">
 		<select>
 				<option value="1">JollyOtter97</option>
 				<option value="2">RabidHyena56</option>
 				<option value="3">FluffyPanda43</option>
 				<option value="4">GrowlyTiger38</option>
 		</select>
+		</section>
 		</div>
 		<br/>
 		<br/>
-		<input type="submit" class = "DISPLAY_NONE">
-		<input type="submit" class = "submit">
+		<section>
+		<label for="email">Email:</label>
+		<input id="email" type="email" autocomplete="email">
+		</section> -->
+		<input type="submit" class = "submit"> 
 	</form>
 	<hr/>
-	<p>You can fill out <a href = "./username-request">this form</a> to request a username change</p>
-	</div>
+	You will be redirected to the sign-in page once you sign up.
+	<script src="script.js" type="module"></script>
 </body>
 </html>

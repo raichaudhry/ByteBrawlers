@@ -1,2 +1,6 @@
 bits 0
 trophies 0
+email null
+fname null
+lname null
+logins null
