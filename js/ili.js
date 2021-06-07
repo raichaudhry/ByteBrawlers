@@ -3,12 +3,17 @@ const {cookieConsent, Cookie} = cookies;
 cookieConsent();
 
 const ili = async () => {
-	const usernameCookie = Cookie.get("username");
-	const passCookie = Cookie.get("pass");
-	if (!(usernameCookie && passCookie)) return false;
-	const username = usernameCookie.value;
-	const pass = passCookie.value;
-	const passHashed = await fetch(`/users/${username}/pass.txt`).then(r => r.text()).catch(e => `${e}`);
-	return passHashed == pass;
+	try {
+		const usernameCookie = Cookie.get("username");
+		const passCookie = Cookie.get("pass");
+		if (usernameCookie.value === "" || passCookie.value === "") return false;
+		const username = usernameCookie.value;
+		const pass = passCookie.value;
+		const passHashed = await fetch(`http://bb-data.mateopaula.com/users/${username}/pass.txt`).then(r => r.text()).catch(console.error);
+		return passHashed == pass;
+	}catch (e) {
+		console.error(e);
+		return false;
+	}
 }
 export default ili;
