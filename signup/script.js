@@ -1,7 +1,7 @@
 import Popup from "https://gavinmorrow.github.io/EasyJS/1/ui/popup/index.js";
-import ili from "https://bb.raichaudhry.com/js/ili.js";
+import ili from "/js/ili.js";
 function startup () {
-    // document.getElementById("challenge2").style.display = "none";
+	// document.getElementById("challenge2").style.display = "none";
 }
 window.submit = function () {
     document.getElementById("challenge1").style.display = "none";
@@ -22,12 +22,12 @@ window.submit = function () {
     } else {
         console.log("pass test #2, passed.");
     }
+
 }
-}
-    console.log('Welcome,' + username + '! Confirming we can reach you at ' + email);
-    console.log(`Welcome to ByteBrawlers, ${name}!`);
-    let php = await fetch(`http://bbdata.mateopaula.com/php/signup.php?${email}+${name}+${username}+${first}+${last}+${pass}+${confirmpass}`);
-    location.href=("../");
-    (async () => {
-        if (await ili()) location.replace("/launcher");
-    })();
+console.log('Welcome,' + username + '! Confirming we can reach you at ' + email);
+console.log(`Welcome to ByteBrawlers, ${name}!`);
+let php = await fetch(`http://bbdata.mateopaula.com/php/signup.php?${email}+${name}+${username}+${first}+${last}+${pass}+${confirmpass}`);
+location.href=("../");
+(async () => {
+	if (await ili()) location.replace("/launcher");
+})()};

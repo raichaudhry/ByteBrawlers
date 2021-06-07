@@ -6,10 +6,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>ByteBrawlers</title>
 	<link rel="stylesheet" href="./style.css">
+	<script type="module">
+		import ili from "/js/ili.js";
+		const li = await ili();
+		if (!li) location.replace("/");
+	</script>
 	<script src="seamless.js" type="module"></script>
 </head>
 <body>
-	
 	<script src="./script.js" type="module"></script>
 </body>
 </html>

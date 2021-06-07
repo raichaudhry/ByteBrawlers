@@ -1,4 +1,5 @@
 import colorScheme from "https://gavinmorrow.github.io/EasyJS/1/ui/colorScheme/index.js";
+import Cookie from "https://gavinmorrow.github.io/EasyJS/1/cookies/cookie/index.js";
 colorScheme.setColors({
 	bg: "#12c0ff",
 	navBg: "#10befd",
@@ -24,3 +25,16 @@ colorScheme.setColors({
 	subText: "#acacac",
 	link: "#adddad",
 },);
+switch(Cookie.get("cs").value) {
+	case "light":
+		colorScheme.set(true);
+		break;
+	case "dark":
+		colorScheme.set(false);
+		break;
+	default:
+	case "auto":
+		colorScheme.reset();
+		colorScheme.autoChange = true;
+		break;
+}
