@@ -9,7 +9,7 @@ const ili = async () => {
 		if (usernameCookie.value === "" || passCookie.value === "") return false;
 		const username = usernameCookie.value;
 		const pass = passCookie.value;
-		const passHashed = await fetch(`http://bb-data.mateopaula.com/users/${username}/pass.txt`).then(r => r.text()).catch(console.error);
+		const passHashed = await fetch(`http://gavinmorrow.com/bb/data/users/${username}/pass.txt`).then(r => r.text()).catch(console.error);
 		return passHashed == pass;
 	}catch (e) {
 		console.error(e);
