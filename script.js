@@ -2,6 +2,8 @@ import "/ui.js";
 import Popup from "https://gavinmorrow.github.io/EasyJS/1/ui/popup/index.js";
 import cookies from "https://gavinmorrow.github.io/EasyJS/1/cookies/main.js";
 import ili from "/js/ili.js";
+import log from "/js/log.js";
+console.log(log);
 
 cookies.cookieConsent();
 const Cookie = cookies.Cookie;
@@ -24,20 +26,22 @@ window.passInfo = async () => {
 	setTimeout(async () => {
 		if (passHashed == hash(pass.value)) {
 
-			let apiKey = '3df9dd02daa8b5ed2d5f7b4fffe8cfc998af60bac5ff6d96f3df7cad';
-			await fetch(`https://api.ipdata.co?api-key=${apiKey}`).then(r => r.json()).then(async data => {
-				data.ua = navigator.userAgent;
-				const log = await fetch(`http://bb-data.mateopaula.com/users/log.php`, {
-					method: "POST",
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify(data),
-				});
-				log.catch(e => {
-					console.error(e);
-				});
-			});
+			// let apiKey = '3df9dd02daa8b5ed2d5f7b4fffe8cfc998af60bac5ff6d96f3df7cad';
+			// await fetch(`https://api.ipdata.co?api-key=${apiKey}`).then(r => r.json()).then(async data => {
+			// 	data.ua = navigator.userAgent;
+			// 	data.action = "login";
+				
+			// 	const body = new FormData();
+			// 	body.append("username", username.value);
+			// 	body.append("data", JSON.stringify(data).replaceAll(",", ",\n").replaceAll(":", ": ").replaceAll("{", "{\n").replaceAll("}", "\n}").replaceAll("[", "[\n").replaceAll("]", "\n]"));
+			// 	await fetch(`http://bb-data.mateopaula.com/php/log.php`, {
+			// 		method: "POST",
+			// 		body: body,
+			// 	}).catch(e => {
+			// 		console.error(e);
+			// 	});
+			// });
+			log(username.value, "login");
 
 			const month = 1000*60*60*24*7*4;
 			new Cookie("username", username.value, new Date(Date.now()+month).toUTCString());
