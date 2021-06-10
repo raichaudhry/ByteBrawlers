@@ -19,17 +19,6 @@ body {
 h1, p {
 	margin-bottom: 0;
 }
-h1:first-of-type {
-	color: var(--easyjs-inverse-text);
-	padding: var(--border-radius);
-	border-radius: var(--border-radius);
-	background-color: var(--easyjs-inverse-bg);
-	--box-shadow: calc(var(--border-radius) / 4);
-	--box-shadow-color: var(--easyjs-inverse-bg);
-	box-shadow: 0 0 var(--box-shadow) 0 var(--box-shadow-color);
-	margin: var(--box-shadow);
-	font-family: var(--font-family-h1a);
-}
 
 #login {
 	width: fit-content;

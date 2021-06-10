@@ -1,15 +1,13 @@
 @import "/ui.css";
 
-:root {
-	text-align: center;
-}
-
-#title {
-	background-color: var(--easyjs-contrastNavBg);
-	color: var(--easyjs-inverse-text);
-	font-family: var(--font-family-h1a);
-	font-size: xxx-large;
-	width: fit-content;
-	padding: var(--border-radius);
+fieldset {
 	border-radius: var(--border-radius);
+	border: 1px solid var(--easyjs-text);
+	background-color: var(--easyjs-cardBg);
+	padding-top: calc(0.5em + 1px);
+}
+legend {
+	position: relative;
+	top: calc(0.5em + 1px);
+	border-top: 1px solid var(--easyjs-text);
 }

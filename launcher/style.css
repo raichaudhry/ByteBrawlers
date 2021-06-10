@@ -4,19 +4,11 @@ html {
 	font-size: x-large;
 }
 
-#banner {
+#title {
 	position: sticky;
 	top: 0;
 	left: 0;
 	right: 0;
-	font: xxx-large var(--font-family-h1a);
-	background-color: var(--easyjs-navBg);
-	margin-top: 0;
-	padding: var(--border-radius);
-	border-radius: var(--border-radius);
-	border-top-left-radius: 0;
-	border-top-right-radius: 0;
-	box-shadow: 0 0 calc(var(--border-radius) / 8) 0 var(--easyjs-text);
 	z-index: 10000;
 }
 #main {

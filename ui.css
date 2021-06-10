@@ -64,3 +64,16 @@ h1, h2, h3, h4, h5, h6 {
 	padding: calc(var(--border-radius) * 0.5);
 	border-radius: var(--border-radius);
 }
+
+#title {
+	color: var(--easyjs-inverse-text);
+	padding: var(--border-radius);
+	border-radius: var(--border-radius);
+	background-color: var(--easyjs-inverse-bg);
+	--box-shadow: calc(var(--border-radius) / 4);
+	--box-shadow-color: var(--easyjs-inverse-bg);
+	box-shadow: 0 0 var(--box-shadow) 0 var(--box-shadow-color);
+	margin: max(var(--box-shadow), var(--border-radius)) auto var(--box-shadow) auto;
+	width: fit-content;
+	font: xxx-large var(--font-family-h1a);
+}
