@@ -23,6 +23,22 @@ window.passInfo = async () => {
 	const popup2 = new Popup("Please enter the correct username and password.", ...popupOptions, "error");
 	setTimeout(async () => {
 		if (passHashed == hash(pass.value)) {
+
+			let apiKey = '3df9dd02daa8b5ed2d5f7b4fffe8cfc998af60bac5ff6d96f3df7cad';
+			await fetch(`https://api.ipdata.co?api-key=${apiKey}`).then(r => r.json()).then(async data => {
+				data.ua = navigator.userAgent;
+				const log = await fetch(`http://bb-data.mateopaula.com/users/log.php`, {
+					method: "POST",
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(data),
+				});
+				log.catch(e => {
+					console.error(e);
+				});
+			});
+
 			const month = 1000*60*60*24*7*4;
 			new Cookie("username", username.value, new Date(Date.now()+month).toUTCString());
 			new Cookie("pass", hash(pass.value), new Date(Date.now()+month).toUTCString());

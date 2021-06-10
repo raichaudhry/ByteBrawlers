@@ -1,6 +1,0 @@
-bits 0
-trophies 0
-email 
-fname 
-lname 
-logins 
