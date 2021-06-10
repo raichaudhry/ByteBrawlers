@@ -2,7 +2,7 @@ import "/ui.js";
 import Popup from "https://gavinmorrow.github.io/EasyJS/1/ui/popup/index.js";
 import cookies from "https://gavinmorrow.github.io/EasyJS/1/cookies/main.js";
 import ili from "/js/ili.js";
-import log from "http://bb-data.mateopaula.com/src/log.js";
+import log from "http://gavinmorrow.com/bb-src/log.js";
 
 cookies.cookieConsent();
 const Cookie = cookies.Cookie;
