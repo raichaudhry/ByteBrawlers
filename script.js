@@ -9,7 +9,7 @@ const Cookie = cookies.Cookie;
 window.passInfo = async () => {
 	const username = document.getElementById("username");
 	const pass = document.getElementById("pass");
-	const passHashed = await fetch(`http://gavinmorrow.com/bb/users/${username.value}/pass.txt`).then(r => r.text()).catch(e => `${e}`);
+	const passHashed = await fetch(`https://gavinmorrow.com/bb/users/${username.value}/pass.txt`).then(r => r.text()).catch(e => `${e}`);
 	const hash = string => {
 		let output = "";
 		for (let letter of string) {
