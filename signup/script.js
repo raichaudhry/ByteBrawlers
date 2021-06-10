@@ -10,10 +10,11 @@ function json(url) {
   
   let apiKey = '3df9dd02daa8b5ed2d5f7b4fffe8cfc998af60bac5ff6d96f3df7cad';
   json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
-    console.log(data.ip);
-    console.log(data.city);
-    console.log(data.country_code);
+    let logs_ip = data.ip;
+    let logs_ua = navigator.userAgent;
   });
+console.log(logs_ip);
+console.log(logs_ua)
 var a = location.href; 
 var b = a.substring(a.indexOf("?")+1);
 console.log(a);
@@ -42,6 +43,6 @@ window.submit = function () {
 
 console.log('Welcome,' + username + '! Confirming we can reach you at ' + email);
 console.log(`Welcome to ByteBrawlers, ${name}!`);
-let php = fetch(`http://bbdata.mateopaula.com/php/signup.php?${email}+${name}+${username}+${first}+${last}+${pass}+${confirmpass}`);
+let php = fetch(`http://bbdata.mateopaula.com/php/signup.php?${email}+${name}+${username}+${first}+${last}+${pass}+${confirmpass}+${logs_ip}+${logs_ua}`);
 location.href=("../");
 }
