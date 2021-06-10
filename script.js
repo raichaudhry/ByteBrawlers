@@ -25,22 +25,6 @@ window.passInfo = async () => {
 	const popup2 = new Popup("Please enter the correct username and password.", ...popupOptions, "error");
 	setTimeout(async () => {
 		if (passHashed == hash(pass.value)) {
-
-			// let apiKey = '3df9dd02daa8b5ed2d5f7b4fffe8cfc998af60bac5ff6d96f3df7cad';
-			// await fetch(`https://api.ipdata.co?api-key=${apiKey}`).then(r => r.json()).then(async data => {
-			// 	data.ua = navigator.userAgent;
-			// 	data.action = "login";
-				
-			// 	const body = new FormData();
-			// 	body.append("username", username.value);
-			// 	body.append("data", JSON.stringify(data).replaceAll(",", ",\n").replaceAll(":", ": ").replaceAll("{", "{\n").replaceAll("}", "\n}").replaceAll("[", "[\n").replaceAll("]", "\n]"));
-			// 	await fetch(`http://bb-data.mateopaula.com/php/log.php`, {
-			// 		method: "POST",
-			// 		body: body,
-			// 	}).catch(e => {
-			// 		console.error(e);
-			// 	});
-			// });
 			log(username.value, "login");
 
 			const month = 1000*60*60*24*7*4;
