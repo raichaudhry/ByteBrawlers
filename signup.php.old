@@ -1,0 +1,20 @@
+<!-- <?php
+	// $username = $_POST["username"];
+	// $pass = $_POST["password"];
+	// $info = $_POST["info"];
+	// $userPath = "../users/$username";
+
+	// echo "Creating account $username\n\n";
+	// if (is_dir($userPath)) die ("User already exists.\n\n");
+
+	// mkdir($userPath);
+
+	// $passF = fopen("$userPath/pass.txt", "x+");
+	// fwrite($passF, "$pass");
+	// fclose($passF);
+
+	// $infoF = fopen("$userPath/info.txt", "x+");
+	// fwrite($infoF, "$info");
+	// fclose($infoF);
+	// echo "\n\bProcess Done"
+?> -->
