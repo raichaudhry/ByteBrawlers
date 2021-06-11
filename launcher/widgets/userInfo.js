@@ -3,7 +3,6 @@ import Cookie from "https://gavinmorrow.github.io/EasyJS/1/cookies/cookie/index.
 const username = Cookie.get("username").value;
 const data = await fetch(`https://gavinmorrow.com/bb/data/users/${username}/info.txt`).then(data => data.text());
 const parsed = parseInfo(data);
-console.log(parsed);
 for (const name in parsed) {
 	const data = parsed[name];
 	const elem = document.createElement("p");
