@@ -23,7 +23,7 @@ window.passInfo = async () => {
 			popup1.wrapper.style.background = "black";
 			await popup1.show();
 			await popup2.hide();
-			location.replace("/launcher/?sid=l");
+			location.replace("/launcher/");
 		} else popup2.show();
 	}, 100);
 }
