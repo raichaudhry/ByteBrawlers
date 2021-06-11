@@ -60,6 +60,15 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
 }
 
+a {
+	color: var(--easyjs-link);
+	text-decoration-color: transparent;
+	transition: text-decoration-color 1s;
+}
+a:hover, a:focus {
+	text-decoration-color: var(--easyjs-link);
+}
+
 .rounded {
 	padding: calc(var(--border-radius) * 0.5);
 	border-radius: var(--border-radius);
