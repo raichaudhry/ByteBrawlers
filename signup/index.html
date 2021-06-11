@@ -9,16 +9,29 @@
 </head>
 <body>
 	<h1 id="title">ByteBrawlers</h1>
-	<form action="https://gavinmorrow.com/bb/src/signup.php" method="POST" id="form">
+	<form action="javascript:signup()" id="form">
 		<fieldset>
-			<legend for="username">Username: </legend>
-			<input type="text" id="username" required>
+			<label for="username" class="input-required">Username:</label>
+			<input type="text" name="username" id="username" required autocomplete="username">
 		</fieldset>
 		<fieldset>
-			<legend for="email">Email: </legend>
-			<input type="email" id="email" autocomplete="email" required>
+			<label for="pass" class="input-required">Password:</label>
+			<input type="password" name="password" id="password" required autocomplete="new-password">
+			<br/>
+			<label for="passV" class="input-required">Verify:</label>
+			<input type="password" name="passwordV" id="passwordV" required autocomplete="off">
 		</fieldset>
+		<fieldset>
+			<label for="email" class="input-required">Email:</label>
+			<input type="email" name="email" id="email" required autocomplete="email">
+		</fieldset>
+		<fieldset>
+			<label for="name">First Name:</label>
+			<input type="text" name="name" id="name" autocomplete="name">
+		</fieldset>
+		<input type="submit" value="Create Account" id="submit">
 	</form>
+	<footer><span>*</span> Required</footer>
 	<script src="script.js" type="module"></script>
 </body>
 </html>

@@ -65,6 +65,14 @@ h1, h2, h3, h4, h5, h6 {
 	border-radius: var(--border-radius);
 }
 
+.easyjs-popup {
+	color: var(--easyjs-dark-text) !important;
+	background-color: var(--easyjs-dark-bg) !important;
+}
+.easyjs-popup[id^='error'] {
+	color: var(--theme-orange) !important;
+}
+
 #title {
 	color: var(--easyjs-inverse-text);
 	padding: var(--border-radius);

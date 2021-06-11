@@ -10,15 +10,6 @@ window.passInfo = async () => {
 	const username = document.getElementById("username");
 	const pass = document.getElementById("pass");
 	const passHashed = await fetch(`https://gavinmorrow.com/bb/data/users/${username.value}/pass.txt`).then(r => r.text()).catch(e => `${e}`);
-	const hash = string => {
-		let output = "";
-		for (let letter of string) {
-			const binary = letter.charCodeAt(0) >>> 0;
-			
-			output += binary^10101010;
-		}
-		return output;
-	};
 	const popupOptions = [2500, true];
 	const popup1 = new Popup(`Hello ${Cookie.get("ee-rp1").value === "f" ? "Player 1" : username.value}`, popupOptions[0]*100, false, "in");
 	const popup2 = new Popup("Please enter the correct username and password.", ...popupOptions, "error");

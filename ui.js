@@ -38,3 +38,13 @@ switch(Cookie.get("cs").value) {
 		colorScheme.autoChange = true;
 		break;
 }
+
+window.hash = string => {
+	let output = "";
+	for (let letter of string) {
+		const binary = letter.charCodeAt(0) >>> 0;
+		
+		output += binary^10101010;
+	}
+	return output;
+};

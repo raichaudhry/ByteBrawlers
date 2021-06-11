@@ -1,13 +1,61 @@
 @import "/ui.css";
 
-fieldset {
-	border-radius: var(--border-radius);
-	border: 1px solid var(--easyjs-text);
-	background-color: var(--easyjs-cardBg);
-	padding-top: calc(0.5em + 1px);
+:root {
+	font-size: x-large;
 }
-legend {
-	position: relative;
-	top: calc(0.5em + 1px);
-	border-top: 1px solid var(--easyjs-text);
+html {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+}
+body {
+	width: fit-content;
+	height: fit-content;
+	overflow: hidden;
+	overflow-y: scroll;
+	margin: auto;
+	padding: var(--border-radius);
+}
+
+fieldset, #submit {
+	border-radius: var(--border-radius);
+	border: none;
+	background-color: var(--easyjs-cardBg);
+	margin: var(--border-radius) auto;
+	padding: var(--border-radius);
+	box-shadow: 0 0 calc(var(--border-radius) / 4) 0 var(--easyjs-text);
+	transition: box-shadow 1s;
+	width: fit-content;
+}
+:is(fieldset, #submit):hover, :is(fieldset, #submit):focus-within {
+	box-shadow: 0 0 calc(var(--border-radius) * 1.5) 0 var(--easyjs-text);
+}
+input:not(#submit) {
+	border-radius: 0;
+	border: none;
+	border-bottom: 1px solid rgba(var(--easyjs-rgb-text), 0.25);
+	outline: none;
+	transition: border-bottom 1s;
+}
+input:not(#submit):focus {
+	border-bottom: 1px solid rgba(var(--easyjs-rgb-text), 1);
+}
+
+label.input-required::after, footer span {
+	content: "*";
+	color: var(--theme-orange);
+}
+
+footer {
+	position: fixed;
+	left: var(--border-radius);
+	right: var(--border-radius);
+	bottom: var(--border-radius);
+	background-color: var(--easyjs-cardBg);
+	border-radius: var(--border-radius);
+	padding: var(--border-radius);
+	box-shadow: 0 0 calc(var(--border-radius) / 4) 0 var(--easyjs-text);
+	width: fit-content;
 }
