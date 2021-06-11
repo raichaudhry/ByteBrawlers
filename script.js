@@ -48,4 +48,6 @@ passToggle.addEventListener("change", e => {
 });
 addEventListener("load", () => passToggle.style.setProperty("--size", getComputedStyle(document.getElementById("pass-toggle-label")).fontSize));
 
-if (await ili()) location.replace("/launcher");
+(async () => {
+	if (await ili()) location.replace("/launcher");
+});
