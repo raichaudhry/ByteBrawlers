@@ -53,14 +53,12 @@ html {
 	padding: var(--border-radius);
 	margin: var(--border-radius);
 	background-color: var(--easyjs-light-buttonBg);
+	overflow-x: scroll;
 }
 #profile>p>div {
 	display: inline-block;
 }
 #profile>p>div:first-of-type {
-	text-transform: capitalize;
-}
-#profile>p>div:last-of-type {
 	text-transform: capitalize;
 }
 
