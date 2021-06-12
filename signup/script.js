@@ -8,6 +8,7 @@ const popups = {
 	somethingWentWrong: new Popup("Something went wrong. Reload the page and try again.", 5000, false, "error-somethingWentWrong"),
 	existingAccount: new Popup("Someone else is already using that username. Please enter a new one.", 5000, false, "error-existingAccount"),
 	existingParzivalAccount: new Popup("That username is already in use.", 2500, false, "error-existingAccount"),
+	usernameInvalid: new Popup("Your username can only contain latin letters and numbers.", 5000, false, "error-usernameInvalid"),
 }
 window.signup = async () => {
 	document.getElementById("submit").setAttribute("disabled", "");
@@ -22,6 +23,13 @@ window.signup = async () => {
 		await popups.verifyFailed.show();
 		passV.value = "";
 		await popups.verifyFailed.hide();
+		document.getElementById("submit").removeAttribute("disabled");
+		return false;
+	}
+	if (/\s/.test(username.value)) {
+		await popups.usernameInvalid.show();
+		passV.value = "";
+		await popups.usernameInvalid.hide();
 		document.getElementById("submit").removeAttribute("disabled");
 		return false;
 	}
