@@ -40,7 +40,7 @@ errorFuncs.friendFetch = e => {
 document.getElementById("add-friend").addEventListener("click", async () => {
 	const popup = await new Popup(`Friend's Username: <input id="friend-username" type="text"><br/><br/><button id="submit-friend">Find!</button>`, 0, false, "friend-username-wrapper", true);
 	await popup.show();
-	document.getElementById("submit-friend").addEventListener("click", () => {
+	document.getElementById("submit-friend").addEventListener("click", async () => {
 		const addFriend = await fetch(`${srcURL}/addFriend.php?username=${username}&fusername=${document.getElementById("friend-username").value}`);
 	});
 });
