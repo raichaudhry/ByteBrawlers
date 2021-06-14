@@ -1,6 +1,6 @@
 import "/ui.js";
 import Popup from "https://gavinmorrow.github.io/EasyJS/1/ui/popup/index.js";
-import cookies from "https://gavinmorrow.github.io/EasyJS/1/cookies/main.js";
+import cookies from "https://gavinmorrow.github.io/EasyJS/2/cookies/main.js";
 import ili from "/js/ili.js";
 import log from "https://gavinmorrow.com/bb/src/log.js";
 
@@ -10,17 +10,8 @@ window.passInfo = async () => {
 	const username = document.getElementById("username");
 	const pass = document.getElementById("pass");
 	const passHashed = await fetch(`https://gavinmorrow.com/bb/data/users/${username.value}/pass.txt`).then(r => r.text()).catch(e => `${e}`);
-	const hash = string => {
-		let output = "";
-		for (let letter of string) {
-			const binary = letter.charCodeAt(0) >>> 0;
-			
-			output += binary^10101010;
-		}
-		return output;
-	};
 	const popupOptions = [2500, true];
-	const popup1 = new Popup(`Hello ${Cookie.get("ee-rp1").value === "f" ? "Player 1" : username.value}`, popupOptions[0]*100, false, "in");
+	const popup1 = new Popup(`Hello ${Cookie.get("ee-rp1").value === "f" ? "Player 1" : username.value}`, popupOptions[0], false, "in");
 	const popup2 = new Popup("Please enter the correct username and password.", ...popupOptions, "error");
 	setTimeout(async () => {
 		if (passHashed == hash(pass.value)) {
@@ -30,8 +21,9 @@ window.passInfo = async () => {
 			new Cookie("username", username.value, new Date(Date.now()+month).toUTCString());
 			new Cookie("pass", hash(pass.value), new Date(Date.now()+month).toUTCString());
 			popup1.wrapper.style.background = "black";
-			popup1.show();
-			setTimeout(() => location.replace("/launcher/?sid=l"), popupOptions[0]);
+			await popup1.show();
+			await popup2.hide();
+			location.replace("/launcher/");
 		} else popup2.show();
 	}, 100);
 }

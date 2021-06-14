@@ -13,16 +13,8 @@ const updateCS = () => {
 	for (const input of inputs) {
 		if (input.checked) csc.value = input.value;
 	}
-	switch (csc.value) {
-		case "light":
-			colorScheme.set(true);
-			break;
-		case "dark":
-			colorScheme.set(false);
-			break;
-		default:
-			colorScheme.reset();
-	}
+	Cookie.get("cs").value = csc.value;
+	document.dispatchEvent(new CustomEvent("cs"));
 }
 updateCS();
 for (const input of inputs) {

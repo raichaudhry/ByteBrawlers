@@ -1,6 +1,41 @@
 @import "/ui.css";
 
+:root {
+	font-size: x-large;
+}
+
 .easyjs-popup {
 	color: var(--easyjs-dark-text) !important;
 	background-color: var(--easyjs-dark-bg) !important;
+}
+#friends {
+	padding: var(--border-radius);
+	border-radius: var(--border-radius);
+	background-color: var(--easyjs-cardBg);
+	float: left;
+	margin-left: var(--border-radius);
+}
+#friends>div:last-of-type {
+	clear: both;
+}
+#friendsList {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+#friendsList li, #add-friend {
+	background-color: var(--easyjs-buttonBg);
+	padding: var(--border-radius);
+	margin: calc(var(--border-radius) / 2);
+	border-radius: var(--border-radius);
+}
+#add-friend {
+	background-color: var(--easyjs-alertBg);
+}
+#friend-username {
+	--init-border-color: var(--easyjs-inverse-text);
+	margin-left: var(--border-radius);
+}
+#submit-friend {
+	color: var(--easyjs-text);
 }

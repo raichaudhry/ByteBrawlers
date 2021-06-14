@@ -25,16 +25,31 @@ colorScheme.setColors({
 	subText: "#acacac",
 	link: "#adddad",
 },);
-switch(Cookie.get("cs").value) {
-	case "light":
-		colorScheme.set(true);
-		break;
-	case "dark":
-		colorScheme.set(false);
-		break;
-	default:
-	case "auto":
-		colorScheme.reset();
-		colorScheme.autoChange = true;
-		break;
+const cs = () => {
+	colorScheme.autoChange = true;
+	switch(Cookie.get("cs").value) {
+		case "light":
+			colorScheme.set(true);
+			break;
+		case "dark":
+			colorScheme.set(false);
+			break;
+		default:
+		case "auto":
+			colorScheme.reset();
+			colorScheme.autoChange = true;
+			break;
+	}
 }
+cs();
+addEventListener("cs", cs);
+
+window.hash = string => {
+	let output = "";
+	for (let letter of string) {
+		const binary = letter.charCodeAt(0) >>> 0;
+		
+		output += binary^10101010;
+	}
+	return output;
+};
