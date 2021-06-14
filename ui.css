@@ -1,4 +1,13 @@
 @import "https://gavinmorrow.com/google-fonts/Major Mono Display|Bungee Inline|Jura|Comfortaa/swap";
+
+@font-face {
+	font-family: "title";
+	src: url("/fonts/title.ttf") format("truetype");
+	unicode-range: U+0020-U+007E;
+	font-display: swap;
+	font-variant: unicase;
+}
+
 * {
 	outline-color: var(--theme-4);
 }
@@ -15,8 +24,9 @@
 	--font-family-b1: "Jura", "Comfortaa", sans-serif;
 	--font-family-b2: "Comfortaa", "Jura", sans-serif;
 	--font-family-h1: "Major Mono Display", monospace;
-	--font-family-h1a: "Bungee Inline", "Major Mono Display", var(--font-family-b1);
+	--font-family-h1a: title, "Bungee Inline", "Major Mono Display", var(--font-family-b1);
 	--font-family-h1b: "Bungee Inline", "Major Mono Display", var(--font-family-b2);
+	--font-family-h1c: "Bungee Inline", "Major Mono Display", var(--font-family-b1);
 	font-family: var(--font-family-b1);
 
 	--border-radius: 0.5em;
@@ -54,6 +64,16 @@ button, input[type="submit" i], select {
 }
 :is(button, input[type="submit" i], select):hover, :is(button, input[type="submit" i], select):focus {
 	box-shadow: 0 0 var(--border-radius) 0 var(--easyjs-subText);
+}
+input {
+	--init-border-color: var(--easyjs-text);
+	border: 1px solid var(--init-border-color);
+	transition: border-color 1s;
+	padding: var(--border-radius);
+	outline: none;
+}
+input:focus {
+	border-color: var(--theme-orange);
 }
 
 h1, h2, h3, h4, h5, h6 {
