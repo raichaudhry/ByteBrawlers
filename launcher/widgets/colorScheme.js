@@ -1,4 +1,4 @@
-import colorScheme from "https://gavinmorrow.github.io/EasyJS/1/ui/colorScheme/index.js";
+import colorScheme from "https://gavinmorrow.github.io/EasyJS/2/ui/colorScheme/index.js";
 import Cookie from "https://gavinmorrow.github.io/EasyJS/1/cookies/cookie/index.js";
 
 const csc = Cookie.get("cs").value == "" ? new Cookie("cs", "auto") : Cookie.get("cs");
@@ -14,7 +14,7 @@ const updateCS = () => {
 		if (input.checked) csc.value = input.value;
 	}
 	Cookie.get("cs").value = csc.value;
-	document.dispatchEvent(new CustomEvent("cs"));
+	dispatchEvent(new Event("cs"));
 }
 updateCS();
 for (const input of inputs) {

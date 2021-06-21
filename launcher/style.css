@@ -75,6 +75,7 @@ html {
 	box-shadow: 0 0 var(--border-radius) 0 var(--easyjs-light-text);
 	font-size: small;
 	transition: background-color 0.25s;
+	border: none;
 }
 #cs-widget-inner>input:hover, #cs-widget-inner>input:focus {
 	background-color: rgba(var(--easyjs-rgb-dark-buttonBg), 0.5);

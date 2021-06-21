@@ -1,4 +1,4 @@
-import colorScheme from "https://gavinmorrow.github.io/EasyJS/1/ui/colorScheme/index.js";
+import colorScheme from "https://gavinmorrow.github.io/EasyJS/2/ui/colorScheme/index.js";
 import Cookie from "https://gavinmorrow.github.io/EasyJS/1/cookies/cookie/index.js";
 colorScheme.setColors({
 	bg: "#12c0ff",
