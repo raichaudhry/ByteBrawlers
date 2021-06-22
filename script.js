@@ -16,7 +16,7 @@ window.passInfo = async () => {
 	setTimeout(async () => {
 		if (passHashed == hash(pass.value)) {
 			log(username.value, "login");
-
+			
 			const month = 1000*60*60*24*7*4;
 			new Cookie("username", username.value, new Date(Date.now()+month).toUTCString());
 			new Cookie("pass", hash(pass.value), new Date(Date.now()+month).toUTCString());
