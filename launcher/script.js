@@ -17,11 +17,13 @@ const main = () => {
 	play.addEventListener("click", () => {
 		// Start Game
 		const popupOptions = [2500, true];
-		const popup1 = new Popup(`${Cookie.get("ee-rp1").value === "f" ? "" : "Get "}Ready ${Cookie.get("ee-rp1").value === "f" ? "Player 1" : Cookie.get("username").value}`, popupOptions[0], false, "rp1");
+		const popup1 = new Popup("Ready Player 1", popupOptions[0], false, "rp1");
 		setTimeout(async () => {
 			popup1.wrapper.style.background = "black";
-			await popup1.show();
-			await popup1.hide();
+			if (Cookie.get("ee-rp1").value === "f") {
+				await popup1.show();
+				await popup1.hide();
+			}
 			location.replace(`/versions/${version.value}/`);
 		});
 	});
