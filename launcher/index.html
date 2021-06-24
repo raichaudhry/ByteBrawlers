@@ -17,6 +17,14 @@
 			<button id="play">Play</button>
 		</div>
 	</section>
+	<section id="game">
+		<section id="friends">
+			<ul id="friendsList">
+				<button id="add-friend" role="listitem">Find Friend</button>
+			</ul>
+			<div></div>
+		</section>
+	</section>
 	<div id="widgets-wrapper" data-hidden style="opacity: 0;">
 		<button id="hamburger">≡</button>
 		<nav id="widgets">
@@ -39,9 +47,9 @@
 	</div>
 
 	<script src="./script.js" type="module"></script>
-	<script src="./widgets/index.js" type="module"></script>
-	<script src="./widgets/userInfo.js" type="module"></script>
-	<script src="./widgets/colorScheme.js" type="module"></script>
-	<script src="/js/signout.js" type="module"></script>
+	<script src="./widgets/index.js" type="module" defer></script>
+	<script src="./widgets/userInfo.js" type="module" defer></script>
+	<script src="./widgets/colorScheme.js" type="module" defer></script>
+	<script src="/js/signout.js" type="module" defer></script>
 </body>
 </html>

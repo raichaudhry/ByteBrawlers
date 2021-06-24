@@ -67,13 +67,17 @@ button, input[type="submit" i], select {
 }
 input {
 	--init-border-color: var(--easyjs-text);
+	--init-focus-border-color: var(--easyjs-text);
 	border: 1px solid var(--init-border-color);
 	transition: border-color 1s;
 	padding: var(--border-radius);
 	outline: none;
 }
-input:focus {
+input:invalid {
 	border-color: var(--theme-orange);
+}
+input:focus {
+	border-color: var(--init-focus-border-color);
 }
 
 h1, h2, h3, h4, h5, h6 {

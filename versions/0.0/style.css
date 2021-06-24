@@ -33,7 +33,8 @@
 	background-color: var(--easyjs-alertBg);
 }
 #friend-username {
-	--init-border-color: var(--easyjs-inverse-text);
+	--init-border-color: rgba(var(--easyjs-rgb-inverse-text), 0.5);
+	--init-focus-border-color: var(--easyjs-inverse-text);
 	margin-left: var(--border-radius);
 }
 #submit-friend {
