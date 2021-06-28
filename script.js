@@ -23,7 +23,7 @@ window.passInfo = async () => {
 			popup1.wrapper.style.background = "black";
 			await popup1.show();
 			await popup2.hide();
-			location.replace("/launcher/");
+			location.replace("/game/");
 		} else popup2.show();
 	}, 100);
 }
@@ -41,5 +41,5 @@ passToggle.addEventListener("change", e => {
 addEventListener("load", () => passToggle.style.setProperty("--size", getComputedStyle(document.getElementById("pass-toggle-label")).fontSize));
 
 (async () => {
-	if (await ili()) location.replace("/launcher");
+	if (await ili()) location.replace("/game/");
 });
