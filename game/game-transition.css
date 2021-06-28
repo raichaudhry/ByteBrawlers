@@ -1,0 +1,10 @@
+#main {
+	opacity: 1;
+	transition: opacity 1s;
+	z-index: 1;
+}
+#game {
+	opacity: 0;
+	transition: opacity 1s;
+	z-index: -1;
+}

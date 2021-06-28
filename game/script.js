@@ -1,7 +1,7 @@
 import "/ui.js";
 import ili from "/js/ili.js";
 import cookies from "https://gavinmorrow.github.io/EasyJS/1/cookies/main.js";
-import Popup from "https://gavinmorrow.github.io/EasyJS/2/ui/popup/index.js";
+import Popup, {sleep} from "https://gavinmorrow.github.io/EasyJS/2/ui/popup/index.js";
 const {cookieConsent, Cookie} = cookies;
 cookieConsent();
 
@@ -23,13 +23,30 @@ const main = () => {
 			await popup1.hide();
 		}
 		// Start Game
+
+		// Get Version #
 		const v = version.value;
 		const [majorVersion, minorVersion] = v.split(".");
-		const gameHTML = await fetch(`/versions/${majorVersion}/${minorVersion}/main.html`).then(r => r.text()).catch(e => {
+
+		// Get the HTML
+		const gameHTML = (await fetch(`/versions/${majorVersion}/${minorVersion}/main.html`).then(r => r.text()).catch(e => {
 			alert(`There was an error. Reload the page and try again.\n\n${e}`);
 			console.error(e);
-		});
-		const game = document;
+		})).split("<!-- GAME HTML -->")[1];
+		// Split by <!-- GAME HTMl --> to take away head and doctype ect. because it is being inserted into the page directly (not iframe)
+		const game = document.getElementById("game");
+		game.innerHTML = gameHTML;
+
+		// Add game style(s) and script(s) to page
+		document.getElementById("game-style").href = `/versions/${majorVersion}/${minorVersion}/style.css`;
+		document.getElementById("game-script").href = `/versions/${majorVersion}/${minorVersion}/main.js`;
+
+		// Transition
+		document.getElementById("main").style.opacity = "0";
+		document.getElementById("main").style.zIndex = "-1";
+		game.style.opacity = "1";
+		game.style.zIndex = "1";
+		sleep(1000);
 	});
 }
 
