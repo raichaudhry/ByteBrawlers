@@ -1,6 +1,6 @@
 import "/ui.js";
 import ili from "/js/ili.js";
-import cookies from "https://gavinmorrow.github.io/EasyJS/1/cookies/main.js";
+import cookies from "https://gavinmorrow.github.io/EasyJS/2/cookies/main.js";
 import Popup, {sleep} from "https://gavinmorrow.github.io/EasyJS/2/ui/popup/index.js";
 const {cookieConsent, Cookie} = cookies;
 cookieConsent();
@@ -22,7 +22,6 @@ const main = () => {
 			await popup1.show();
 			await popup1.hide();
 		}
-		// Start Game
 
 		// Get Version #
 		const v = version.value;
@@ -37,16 +36,41 @@ const main = () => {
 		const game = document.getElementById("game");
 		game.innerHTML = gameHTML;
 
-		// Add game style(s) and script(s) to page
-		document.getElementById("game-style").href = `/versions/${majorVersion}/${minorVersion}/style.css`;
-		document.getElementById("game-script").href = `/versions/${majorVersion}/${minorVersion}/main.js`;
+		// Enable going back to the launcher
+		let backListener;
+		const back = async () => {
+			document.getElementById("main").style.opacity = "1";
+			document.getElementById("main").style.zIndex = "1";
+			game.style.opacity = "0";
+			game.style.zIndex = "-1";
+			await sleep(1000);
+			document.getElementById("back").removeEventListener("click", backListener);
+		}
+		backListener = document.getElementById("back").addEventListener("click", back);
 
-		// Transition
-		document.getElementById("main").style.opacity = "0";
-		document.getElementById("main").style.zIndex = "-1";
-		game.style.opacity = "1";
-		game.style.zIndex = "1";
-		sleep(1000);
+		// Add game style(s) and script(s) to page
+		const next = async () => {
+			if (gameStyleLoaded && gameScriptLoaded) {
+				// Transition
+				document.getElementById("main").style.opacity = "0";
+				document.getElementById("main").style.zIndex = "-1";
+				game.style.opacity = "1";
+				game.style.zIndex = "1";
+				await sleep(1000);
+
+			}
+		}
+		document.getElementById("game-style").href = `/versions/${majorVersion}/${minorVersion}/style.css`;
+		document.getElementById("game-script").src = `/versions/${majorVersion}/${minorVersion}/main.js`;
+		let gameStyleLoaded = false, gameScriptLoaded = false;
+		document.getElementById("game-style").addEventListener("load", () => {
+			gameStyleLoaded = true;
+			next();
+		});
+		document.getElementById("game-script").addEventListener("load", () => {
+			gameScriptLoaded = true;
+			next();
+		});
 	});
 }
 

@@ -45,11 +45,13 @@ cs();
 addEventListener("cs", cs);
 
 window.hash = string => {
-	let output = "";
-	for (let letter of string) {
-		const binary = letter.charCodeAt(0) >>> 0;
+	// let output = "";
+	// for (let letter of string) {
+	// 	const binary = letter.charCodeAt(0) >>> 0;
 		
-		output += binary^10101010;
-	}
-	return output;
+	// 	output += binary^10101010;
+	// }
+	// return output;
+	console.warn("The hash function is decapricated, DON'T USE IT!!!\n\nThis warning is to identify all the places where the hash function is being used. If you see this warning, please tell Gavin Morrow where it came from (file and line).");
+	return string;
 };

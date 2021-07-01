@@ -1,5 +1,5 @@
 import "/ui.js";
-import Popup from "https://gavinmorrow.github.io/EasyJS/1/ui/popup/index.js";
+import Popup from "https://gavinmorrow.github.io/EasyJS/2/ui/popup/index.js";
 import cookies from "https://gavinmorrow.github.io/EasyJS/2/cookies/main.js";
 import ili from "/js/ili.js";
 import log from "https://gavinmorrow.com/bb/src/log.js";
@@ -14,17 +14,17 @@ window.passInfo = async () => {
 	const popup1 = new Popup(`Hello ${Cookie.get("ee-rp1").value === "f" ? "Player 1" : username.value}`, popupOptions[0], false, "in");
 	const popup2 = new Popup("Please enter the correct username and password.", ...popupOptions, "error");
 	setTimeout(async () => {
-		if (passHashed == hash(pass.value)) {
+		// Remake login to account for PHP hashing (not JS)
+		if (passHashed == pass.value) {
 			log(username.value, "login");
-			
+
 			const month = 1000*60*60*24*7*4;
 			new Cookie("username", username.value, new Date(Date.now()+month).toUTCString());
-			new Cookie("pass", hash(pass.value), new Date(Date.now()+month).toUTCString());
+			new Cookie("pass", pass.value, new Date(Date.now()+month).toUTCString());
 			popup1.wrapper.style.background = "black";
-			await popup1.show();
-			await popup2.hide();
+			await (await popup1.show()).hide();
 			location.replace("/game/");
-		} else popup2.show();
+		} else await (await popup2.show()).hide();
 	}, 100);
 }
 

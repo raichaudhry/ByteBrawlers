@@ -40,9 +40,6 @@ window.signup = async () => {
 		document.getElementById("submit").removeAttribute("disabled");
 		return false;
 	}
-	
-	const data = new FormData(form);
-	data.set("pass", hash(data.get("password")));
 
 	const evaluatePhp = async (php) => {
 		const show_hide = async popup => {
@@ -67,7 +64,7 @@ window.signup = async () => {
 	}
 	const phpFetch = await fetch("https://gavinmorrow.com/bb/src/signup.php", {
 		method: "POST",
-		body: data,
+		body: new FormData(form),
 	}).catch(e => {
 		console.error(e);
 		const php = "";
