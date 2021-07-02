@@ -1,5 +1,6 @@
 import colorScheme from "https://gavinmorrow.github.io/EasyJS/2/ui/colorScheme/index.js";
 import Cookie from "https://gavinmorrow.github.io/EasyJS/1/cookies/cookie/index.js";
+import cookieConsent from "https://gavinmorrow.github.io/EasyJS/1/cookies/cookieConsent/index.js";
 colorScheme.setColors({
 	bg: "#12c0ff",
 	navBg: "#10befd",
@@ -55,3 +56,12 @@ window.hash = string => {
 	console.warn("The hash function is decapricated, DON'T USE IT!!!\n\nThis warning is to identify all the places where the hash function is being used. If you see this warning, please tell Gavin Morrow where it came from (file and line).");
 	return string;
 };
+
+window.noCache = {
+	cache: "no-store",
+};
+
+window.bbSrc = "https://gavinmorrow.com/bb/src/";
+window.bbData = "https://gavinmorrow.com/bb/data/";
+
+cookieConsent();

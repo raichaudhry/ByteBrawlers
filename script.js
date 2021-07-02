@@ -9,13 +9,12 @@ const Cookie = cookies.Cookie;
 window.passInfo = async () => {
 	const username = document.getElementById("username");
 	const pass = document.getElementById("pass");
-	const passHashed = await fetch(`https://gavinmorrow.com/bb/data/users/${username.value}/pass.txt`).then(r => r.text()).catch(e => `${e}`);
 	const popupOptions = [2500, true];
 	const popup1 = new Popup(`Hello ${Cookie.get("ee-rp1").value === "f" ? "Player 1" : username.value}`, popupOptions[0], false, "in");
 	const popup2 = new Popup("Please enter the correct username and password.", ...popupOptions, "error");
 	setTimeout(async () => {
-		// Remake login to account for PHP hashing (not JS)
-		if (passHashed == pass.value) {
+		// TODO: Remake login to account for PHP hashing (not JS)
+		if (await ili(username.value, pass.value)) {
 			log(username.value, "login");
 
 			const month = 1000*60*60*24*7*4;
@@ -23,8 +22,12 @@ window.passInfo = async () => {
 			new Cookie("pass", pass.value, new Date(Date.now()+month).toUTCString());
 			popup1.wrapper.style.background = "black";
 			await (await popup1.show()).hide();
-			location.replace("/game/");
-		} else await (await popup2.show()).hide();
+			// location.replace("/game/");
+		} else {
+			// Only log if the user exists, otherwise it will create an empty user directory (makeing a non-exisitant user)
+			if (await fetch(`$${bbSrc}/userExists.php?username${username}`).then(r => r.text()) === "1") log(username.value, "login-attempt");
+			await (await popup2.show()).hide();
+		}
 	}, 100);
 }
 
@@ -42,4 +45,4 @@ addEventListener("load", () => passToggle.style.setProperty("--size", getCompute
 
 (async () => {
 	if (await ili()) location.replace("/game/");
-});
+})();

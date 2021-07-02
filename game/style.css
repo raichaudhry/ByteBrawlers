@@ -34,6 +34,12 @@ html {
 	color: var(--easyjs-dark-text) !important;
 	background-color: var(--easyjs-dark-bg) !important;
 }
+.easyjs-popup :is(button, input[type="submit"]) {
+	color: var(--easyjs-light-text) !important;
+}
+.easyjs-popup input {
+	--init-focus-border-color: var(--easyjs-dark-divideBg);
+}
 
 #signout {
 	background-color: yellow;

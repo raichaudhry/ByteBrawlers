@@ -75,8 +75,6 @@ const main = () => {
 }
 
 (async () => {
-	if (await ili()) {
-		// User is logged in.
-		main();
-	}else location.replace("/");
+	if (await ili()) main(); // User is logged in, so let them into page
+	else location.replace("/"); // User is not logged in, so redirect to login page. 
 })();

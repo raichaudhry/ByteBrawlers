@@ -5,8 +5,6 @@
 }
 html {
 	display: flex;
-	justify-content: center;
-	align-items: center;
 	width: 100vw;
 	height: 100vh;
 }
@@ -17,6 +15,7 @@ body {
 	overflow-y: scroll;
 	margin: auto;
 	padding: var(--border-radius);
+	margin-top: 0;
 }
 
 fieldset, #submit {
@@ -28,6 +27,8 @@ fieldset, #submit {
 	box-shadow: 0 0 calc(var(--border-radius) / 4) 0 var(--easyjs-text);
 	transition: box-shadow 1s;
 	width: fit-content;
+	position: relative;
+	z-index: 100;
 }
 :is(fieldset, #submit):hover, :is(fieldset, #submit):focus-within {
 	box-shadow: 0 0 calc(var(--border-radius) * 1.5) 0 var(--easyjs-text);
@@ -59,4 +60,7 @@ footer {
 	box-shadow: 0 0 calc(var(--border-radius) / 4) 0 var(--easyjs-text);
 	width: fit-content;
 	text-align: left;
+}
+footer:hover, footer:focus {
+	z-index: 101;
 }
