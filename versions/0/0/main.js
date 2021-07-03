@@ -1,8 +1,6 @@
 import Cookie from "https://gavinmorrow.github.io/EasyJS/2/cookies/cookie/index.js";
 import Popup from "https://gavinmorrow.github.io/EasyJS/2/ui/popup/index.js";
 
-console.log("Game Script Loaded");
-
 const srcURL = "https://gavinmorrow.com/bb/src";
 const databaseURL = "https://gavinmorrow.com/bb/data";
 const friendsElem = document.getElementById("friends");
