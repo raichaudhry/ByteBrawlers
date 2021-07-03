@@ -32,7 +32,7 @@ const main = () => {
 			alert(`There was an error. Reload the page and try again.\n\n${e}`);
 			console.error(e);
 		})).split("<!-- GAME HTML -->")[1];
-		// Split by <!-- GAME HTMl --> to take away head and doctype ect. because it is being inserted into the page directly (not iframe)
+		// Split by <!-- GAME HTML --> to take away head and doctype ect. because it is being inserted into the page directly (not iframe)
 		const game = document.getElementById("game");
 		game.innerHTML = gameHTML;
 
@@ -45,13 +45,16 @@ const main = () => {
 			game.style.zIndex = "-1";
 			await sleep(1000);
 			document.getElementById("back").removeEventListener("click", backListener);
+			document.getElementById("back").style.display = "none";
 		}
 		backListener = document.getElementById("back").addEventListener("click", back);
 
 		// Add game style(s) and script(s) to page
+		let gameStyleLoaded = false, gameScriptLoaded = false;
 		const next = async () => {
 			if (gameStyleLoaded && gameScriptLoaded) {
 				// Transition
+				document.getElementById("back").style.display = "block";
 				document.getElementById("main").style.opacity = "0";
 				document.getElementById("main").style.zIndex = "-1";
 				game.style.opacity = "1";
@@ -60,14 +63,24 @@ const main = () => {
 
 			}
 		}
-		document.getElementById("game-style").href = `/versions/${majorVersion}/${minorVersion}/style.css`;
-		document.getElementById("game-script").src = `/versions/${majorVersion}/${minorVersion}/main.js`;
-		let gameStyleLoaded = false, gameScriptLoaded = false;
-		document.getElementById("game-style").addEventListener("load", () => {
+		
+		const gameStyle = document.createElement("link");
+		gameStyle.rel = "stylesheet";
+		gameStyle.href = `/versions/${majorVersion}/${minorVersion}/style.css`;
+		document.head.appendChild(gameStyle);
+
+		const gameScript = document.createElement("script");
+		gameScript.type = "module";
+		gameScript.src = `/versions/${majorVersion}/${minorVersion}/main.js`;
+		document.body.appendChild(gameScript);
+
+		gameStyle.addEventListener("load", () => {
+			console.log("Style Loaded");
 			gameStyleLoaded = true;
 			next();
 		});
-		document.getElementById("game-script").addEventListener("load", () => {
+		gameScript.addEventListener("load", () => {
+			console.log("Script Loaded");
 			gameScriptLoaded = true;
 			next();
 		});
