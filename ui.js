@@ -68,7 +68,7 @@ window.bbData = "https://gavinmorrow.com/bb/data/";
 
 cookieConsent();
 
-window.warn = async (reason, time = 5000, autoHide = false) => {
+window.warn = async (reason, time = 5000, autoHide = true) => {
 	const elem = document.createElement("div");
 	elem.className = "warning";
 	switch (reason) {
