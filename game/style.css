@@ -57,6 +57,7 @@ html {
 	transition: box-shadow 1s;
 	box-shadow: 0 0 calc(var(--border-radius) / 2) 0 var(--theme-light-blue) inset;
 	width: 100%;
+	display: none;
 }
 #back:focus, #back:hover {
 	box-shadow: 0 0 var(--border-radius) 0 var(--theme-light-blue) inset;
