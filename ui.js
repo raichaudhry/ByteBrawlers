@@ -45,18 +45,6 @@ const cs = () => {
 cs();
 addEventListener("cs", cs);
 
-window.hash = string => {
-	// let output = "";
-	// for (let letter of string) {
-	// 	const binary = letter.charCodeAt(0) >>> 0;
-		
-	// 	output += binary^10101010;
-	// }
-	// return output;
-	console.warn("The hash function is decapricated, DON'T USE IT!!!\n\nThis warning is to identify all the places where the hash function is being used. If you see this warning, please tell Gavin Morrow (programmerg@protonmail.com) where it came from (file and line).");
-	return string;
-};
-
 window.sleep = (ms = 0) => new Promise(resolve => setTimeout(resolve, ms));
 
 window.noCache = {
@@ -88,4 +76,15 @@ window.warn = async (reason, time = 5000, autoHide = true) => {
 	const hide = () => elem.style.setProperty("right", `-100vw`);
 	if (autoHide) hide();
 	else return {elem, hide};
+}
+
+window.ee = (name, find = "") => {
+	// First, see if you have to find the easter egg or see if it is found
+	if (find === true) new Cookie(`ee-${name}`, "f");
+	else if (find === false) Cookie.get(`ee-${name}`).delete();
+
+	// Check to see if the user has found the easter egg
+	const eeCookie = Cookie.get(`ee-${name}`);
+	if (eeCookie.value === "f") return true;
+	else return false;
 }

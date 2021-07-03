@@ -65,8 +65,7 @@ const main = () => {
 				document.getElementById("main").style.zIndex = "-1";
 				game.style.opacity = "1";
 				game.style.zIndex = "1";
-				await sleep(1000);
-
+				if (ee("rp1"));
 			}
 		}
 		

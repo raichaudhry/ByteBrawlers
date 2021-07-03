@@ -10,7 +10,7 @@ window.passInfo = async () => {
 	const username = document.getElementById("username");
 	const pass = document.getElementById("pass");
 	const popupOptions = [2500, true];
-	const popup1 = new Popup(`Hello ${Cookie.get("ee-rp1").value === "f" ? "Player 1" : username.value}`, popupOptions[0], false, "in");
+	const popup1 = new Popup(`Hello ${username.value}`, popupOptions[0], false, "in");
 	const popup2 = new Popup("Please enter the correct username and password.", ...popupOptions, "error");
 	setTimeout(async () => {
 		// TODO: Remake login to account for PHP hashing (not JS)
