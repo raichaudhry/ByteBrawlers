@@ -44,15 +44,21 @@ const main = () => {
 			game.style.opacity = "0";
 			game.style.zIndex = "-1";
 			await sleep(1000);
+			dispatchEvent(new Event("click")); // Close the widgets. 
 			document.getElementById("back").removeEventListener("click", backListener);
-			document.getElementById("back").style.display = "none";
+			document.getElementById("back").style.display = "none"; // Remove the back button
 		}
 		backListener = document.getElementById("back").addEventListener("click", back);
 
 		// Add game style(s) and script(s) to page
-		let gameStyleLoaded = false, gameScriptLoaded = false;
+		let gameStyleLoaded = false, gameScriptLoaded = false, resolveLoading;
+		warn("loading", 0, false).then(warning => {
+			resolveLoading = warning.hide;
+			if (gameStyleLoaded && gameScriptLoaded) resolveLoading();
+		});
 		const next = async () => {
 			if (gameStyleLoaded && gameScriptLoaded) {
+				if (resolveLoading) resolveLoading() // For the warning
 				// Transition
 				document.getElementById("back").style.display = "block";
 				document.getElementById("main").style.opacity = "0";
@@ -75,12 +81,10 @@ const main = () => {
 		document.body.appendChild(gameScript);
 
 		gameStyle.addEventListener("load", () => {
-			console.log("Style Loaded");
 			gameStyleLoaded = true;
 			next();
 		});
 		gameScript.addEventListener("load", () => {
-			console.log("Script Loaded");
 			gameScriptLoaded = true;
 			next();
 		});
