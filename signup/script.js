@@ -4,7 +4,7 @@ import cookieConsent from "https://gavinmorrow.github.io/EasyJS/1/cookies/cookie
 cookieConsent();
 const popups = {
 	verifyFailed: new Popup("The passwords do not match!", 5000, false, "error-verifyFailed"),
-	accountCreated: new Popup("Your account was created!", 5000),
+	accountCreated: new Popup("Your account was created sucessfully! Check the email adress you entered earlier to activate it.", 5000),
 	somethingWentWrong: new Popup("Something went wrong. Reload the page and try again.", 5000, false, "error-somethingWentWrong"),
 	existingAccount: new Popup("Someone else is already using that username. Please enter a new one.", 5000, false, "error-existingAccount"),
 	existingParzivalAccount: new Popup("That username is already in use.", 2500, false, "error-existingAccount"),
