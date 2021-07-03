@@ -22,5 +22,5 @@ document.getElementById("hamburger").addEventListener("click", () => {
 });
 addEventListener("click", e => {
 	// If you click outside of the widgets, then close the widgets. 
-	if (!(widgetsWrapper.contains(e.target) || e.target == widgetsWrapper)) close();
+	if (!(e.target instanceof Node) || (!(widgetsWrapper.contains(e.target) || e.target == widgetsWrapper))) close();
 });
