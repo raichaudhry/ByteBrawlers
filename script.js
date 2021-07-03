@@ -22,10 +22,10 @@ window.passInfo = async () => {
 			new Cookie("pass", pass.value, new Date(Date.now()+month).toUTCString());
 			popup1.wrapper.style.background = "black";
 			await (await popup1.show()).hide();
-			// location.replace("/game/");
+			location.replace("/game/");
 		} else {
 			// Only log if the user exists, otherwise it will create an empty user directory (makeing a non-exisitant user)
-			if (await fetch(`$${bbSrc}/userExists.php?username${username}`).then(r => r.text()) === "1") log(username.value, "login-attempt");
+			if (await fetch(`${bbSrc}/userExists.php?username=${username.value}`).then(r => r.text()) === "1") log(username.value, "login-attempt");
 			await (await popup2.show()).hide();
 		}
 	}, 100);

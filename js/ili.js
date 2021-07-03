@@ -6,7 +6,7 @@ const ili = async (u = null, p = null) => {
 	try {
 		const usernameCookie = Cookie.get("username");
 		const passCookie = Cookie.get("pass");
-		if (usernameCookie.value === "" || passCookie.value === "") return false;
+		if ((usernameCookie.value === "" || passCookie.value === "") && !(u || p)) return false;
 		const username = u || usernameCookie.value;
 		const pass = p || passCookie.value;
 
