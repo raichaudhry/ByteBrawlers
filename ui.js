@@ -80,7 +80,7 @@ window.warn = async (reason, time = 5000, autoHide = true) => {
 			break;
 	}
 	document.body.appendChild(elem);
-	await sleep(100) // Allow the element to be added to the DOM
+	await sleep(1) // Allow the element to be added to the DOM
 	elem.style.setProperty("right", `var(--border-radius)`);
 	await sleep(2000); // wait 5s for the transition to finish
 	await sleep(time); // then wait the ammount of time the caller wants the alert to be shown
