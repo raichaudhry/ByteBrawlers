@@ -118,3 +118,18 @@ a:hover, a:focus {
 	width: fit-content;
 	font: xxx-large var(--font-family-h1a);
 }
+
+.warning {
+	position: fixed;
+	top: var(--border-radius);
+	right: -22em;
+	padding: var(--border-radius);
+	border-radius: var(--border-radius);
+	background-color: rgba(var(--easyjs-rgb-inverse-cardBg), 0.9);
+	color: var(--easyjs-inverse-text);
+	z-index: 1000000000000;
+	transition: right 2s;
+	max-width: 22em;
+	max-height: 3em;
+	overflow: scroll;
+}
