@@ -132,4 +132,5 @@ a:hover, a:focus {
 	max-width: 22em;
 	max-height: 3em;
 	overflow: scroll;
+	box-shadow: 0 0 var(--border-radius) 0 var(--easyjs-text);
 }
