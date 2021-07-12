@@ -7,6 +7,13 @@
 	font-display: swap;
 	font-variant: unicase;
 }
+@font-face {
+	font-family: "body";
+	src: url("/fonts/body.ttf") format("truetype");
+	unicode-range: U+0020-U+007E;
+	font-display: swap;
+	font-variant: unicase;
+}
 
 * {
 	outline-color: var(--theme-4);
@@ -21,8 +28,12 @@
 	--theme-3: #12c0ff;
 	--theme-4: #FF4507;
 
-	--font-family-b1: "Jura", "Comfortaa", sans-serif;
-	--font-family-b2: "Comfortaa", "Jura", sans-serif;
+	--font-family-b1a: body, "Jura", "Comfortaa", sans-serif;
+	--font-family-b1b: "Jura", "Comfortaa", sans-serif;
+	--font-family-b2a: body, "Comfortaa", "Jura", sans-serif;
+	--font-family-b2b: "Comfortaa", "Jura", sans-serif;
+	--font-family-b1: var(--font-family-b1a);
+	--font-family-b2: var(--font-family-b1a);
 	--font-family-h1: "Major Mono Display", monospace;
 	--font-family-h1a: title, "Bungee Inline", "Major Mono Display", var(--font-family-b1);
 	--font-family-h1b: "Bungee Inline", "Major Mono Display", var(--font-family-b2);
