@@ -1,5 +1,8 @@
 import Cookie from "https://gavinmorrow.github.io/EasyJS/2/cookies/cookie/index.js";
 import Popup from "https://gavinmorrow.github.io/EasyJS/2/ui/popup/index.js";
+import NamedError from "https://gavinmorrow.github.io/EasyJS/2/errors/namedError/index.js";
+
+window.Popup = Popup;
 
 const srcURL = "https://gavinmorrow.com/bb/src";
 const databaseURL = "https://gavinmorrow.com/bb/data";
@@ -13,17 +16,22 @@ const getErrorFunc = func => {
 		return e;
 	}
 }
-const errorFuncs = {
-	friendFetch: getErrorFunc(e => friendsElem.innerHTML = `There was an error. Refresh the page and try again.<br/><br/>Error:<br/>${e}`),
+window.errorFuncs = {
+	friendFetch: getErrorFunc(e => friendsElem.innerHTML = `There was an error. Refresh the page and try again.<br/><br/>${e}`),
 	addFriend: getErrorFunc(async e => {
-		const popup = await new Popup(`There was an error. Refresh the page and try again. <br/><br/>${e}`, 5000, false, true);
+		const popup = await new Popup(`There was an error. Refresh the page and try again. <br/><br/>${e}`, 5000, false, "", true);
 		await popup.show();
 		await popup.hide();
 	}),
 	friendNoExist: getErrorFunc(async (_, username) => {
-		const popup = await new Popup(`The username you inputed (${username}) does not exist.`, 5000, false, true);
-		await popup.show();
-		await popup.hide();
+		new Popup(`The username you inputed (${username}) does not exist.`, 5000, false, "", true)
+		.then(popup => popup.show())
+		.then(popup => popup.hide());
+	}),
+	alreadyFriend: getErrorFunc((_, username) => {
+		new Popup(`You are already friends with ${username}.`, 5000, false, "", true)
+		.then(popup => popup.show())
+		.then(popup => popup.hide());
 	}),
 };
 const username = Cookie.get("username").value;
@@ -38,7 +46,7 @@ const fetchFriends = async () => {
 			// Friends file was created.
 			break;
 		default:
-			errorFuncs.friendFetch();
+			errorFuncs.friendFetch(new NamedError("UnknownFetchError"));
 			break;
 	}
 	const friendsString = await fetch(`${databaseURL}/users/${username}/friends.txt`).then(r => r.text());
@@ -64,6 +72,7 @@ const addFriend = async e => {
 	if (e.target == document.getElementById("add-friend")) {
 		await popup.show();
 		document.getElementById("submit-friend").addEventListener("click", async () => {
+			document.getElementById("submit-friend").setAttribute("disabled", "");
 			const addFriend = await fetch(`${srcURL}/addFriend.php?username=${username}&fusername=${document.getElementById("friend-username").value || "parzival"}`, {
 				cache: "no-store",
 			}).then(r => r.text()).catch(errorFuncs.addFriend);
@@ -74,12 +83,17 @@ const addFriend = async e => {
 				case "1":
 					fetchFriends();
 					break;
+				case "2":
+					errorFuncs.alreadyFriend(new Error(`Already friends with ${document.getElementById("friend-username").value}.`), document.getElementById("friend-username").value);
+					break;
 				default:
 					break;
 				}
 			await popup.hide();
 			document.getElementById("friend-username").value = "";
+			document.getElementById("submit-friend").removeAttribute("disabled");
 		});
 	}
 }
 addEventListener("click", addFriend);
+setInterval(fetchFriends, 1000 /* * 60 */);
