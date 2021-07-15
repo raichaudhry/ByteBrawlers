@@ -43,8 +43,8 @@ const main = () => {
 			document.getElementById("main").style.zIndex = "1";
 			game.style.opacity = "0";
 			game.style.zIndex = "-1";
-			await sleep(1000);
 			dispatchEvent(new Event("click")); // Close the widgets. 
+			await sleep(1000);
 			document.getElementById("back").removeEventListener("click", backListener);
 			document.getElementById("back").style.display = "none"; // Remove the back button
 		}
