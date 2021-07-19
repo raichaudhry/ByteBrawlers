@@ -76,6 +76,11 @@ button, input[type="submit" i], select {
 :is(button, input[type="submit" i], select):hover, :is(button, input[type="submit" i], select):focus {
 	box-shadow: 0 0 var(--border-radius) 0 var(--easyjs-subText);
 }
+:is(input, button):disabled {
+	box-shadow: 0 0 calc(var(--border-radius) / 4) 0 var(--easyjs-subText) !important;
+	opacity: 0.6;
+	cursor: not-allowed;
+}
 input {
 	--init-border-color: var(--easyjs-text);
 	--init-focus-border-color: var(--easyjs-text);
