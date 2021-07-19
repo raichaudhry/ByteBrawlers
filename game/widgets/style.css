@@ -59,6 +59,7 @@
 	padding-top: calc(var(--border-radius) / 4);
 	line-height: 0.75em;
 	vertical-align: middle;
+	font-family: var(--font-family-b1b) !important;
 }
 #widgets-wrapper[data-hidden] #hamburger {
 	left: var(--border-radius);

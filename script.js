@@ -9,6 +9,20 @@ const Cookie = cookies.Cookie;
 window.passInfo = async () => {
 	const username = document.getElementById("username");
 	const pass = document.getElementById("pass");
+	
+	if (username.value.toLowerCase() == "parzival") {
+		switch (pass.value) {
+			case "You have been recruited by the Star League to defend the frontier against Xur and the Ko-Dan Armanda.":
+			case "No one in the world gets what they want and that is beautiful.":
+			case "Reindeer Flotilla Setec Astronomy":
+				ee("rp1", true);
+				new Popup("Congratulations! You have discovered a Ready Player 1 easter egg!", undefined, undefined, undefined, true).then(popup => popup.show()).then(popup => popup.hide());
+				return;
+			default:
+				break;
+		}
+	}
+
 	const popupOptions = [2500, true];
 	const popup1 = new Popup(`Hello ${username.value}`, popupOptions[0], false, "in");
 	const popup2 = new Popup("Please enter the correct username and password.", ...popupOptions, "error");

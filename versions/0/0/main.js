@@ -1,6 +1,7 @@
 import Cookie from "https://gavinmorrow.github.io/EasyJS/2/cookies/cookie/index.js";
 import Popup from "https://gavinmorrow.github.io/EasyJS/2/ui/popup/index.js";
 import NamedError from "https://gavinmorrow.github.io/EasyJS/2/errors/namedError/index.js";
+import "/ui.js";
 
 window.Popup = Popup;
 
@@ -37,7 +38,7 @@ window.errorFuncs = {
 const username = Cookie.get("username").value;
 // Fetch friends
 const fetchFriends = async () => {
-	const file = await fetch(`${srcURL}/file.php?username=${username}&path=/&name=friends.txt`).then(r => r.text()).catch(errorFuncs.friendFetch);
+	const file = await fetch(`${srcURL}/file.php?username=${username}&path=/&name=friends.txt`).then(r => r.text(), noCache).catch(errorFuncs.friendFetch);
 	switch (file) {
 		case "0":
 			// Friends text file exists.
@@ -53,6 +54,7 @@ const fetchFriends = async () => {
 	const friends = friendsString.split("\n");
 	friendsList.innerHTML = friendsListInitInnerHTML;
 	for (const friendLine of friends) {
+		// TODO: Add support for pending friends and friend flags (and remove friend).
 		const [friend, flag] = friendLine.split(" ");
 		if (friend.length < 1) continue;
 		const item = document.createElement("li");

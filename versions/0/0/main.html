@@ -5,19 +5,26 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>ByteBrawlers v0.0</title>
+	<link rel="stylesheet" href="./style.css">
 </head>
 <body>
 	<!-- (start) -->
 	<!-- GAME HTML -->
-	<section id="friends">
-		<ul id="friendsList">
-			<button id="add-friend" role="listitem">Find Friend</button>
-		</ul>
-		<div>
-			
-		</div>
-	</section>
+	<div id="game-wrapper">
+		<section id="friends">
+			<ul id="friendsList">
+				<button id="add-friend" role="listitem">Find Friend</button>
+			</ul>
+		</section>
+		<main>
+			<img src="/imgs/base-character.png" alt="Your brawler" id="brawler">
+			<br/>
+			<button disabled="disabled" id="edit-brawler">Edit Brawler</button>
+		</main>
+		<div style="clear: both;"> <!-- Make the #game-wrapper div extend to cover both the section#friends and main --></div>
+	</div>
 	<!-- GAME HTML -->
 	<!-- (end) -->
+	<script src="./main.js" type="module"></script>
 </body>
 </html>
