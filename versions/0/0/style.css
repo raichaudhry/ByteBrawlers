@@ -5,12 +5,11 @@ main {
 	text-align: center;
 }
 
-#friends {
+#friends, #brawl-section {
 	padding: var(--border-radius);
 	border-radius: var(--border-radius);
 	background-color: var(--easyjs-cardBg);
-	float: left;
-	margin-left: var(--border-radius);
+	margin: var(--border-radius);
 }
 #friends>div:last-of-type {
 	clear: both;
@@ -50,8 +49,13 @@ main {
 }
 
 #game-wrapper {
-	background: url(/imgs/favicons/favicon-50o.svg);
-	background-size: 25vmin;
-	background-position: center;
-	background-repeat: no-repeat;
+	text-align: center;
+}
+
+#brawlosseum {
+	opacity: 0;
+	z-index: -1;
+	transition: opacity 1s;
+	background-color: var(--easyjs-bg);
+	background-image: url(/imgs/brawlosseum.svg);
 }

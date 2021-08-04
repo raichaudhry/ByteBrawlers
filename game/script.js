@@ -88,6 +88,7 @@ const main = () => {
 			next();
 		});
 	});
+	play.dispatchEvent(new Event("click"));
 }
 
 (async () => {

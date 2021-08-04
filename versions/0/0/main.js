@@ -1,5 +1,5 @@
 import Cookie from "https://gavinmorrow.github.io/EasyJS/2/cookies/cookie/index.js";
-import Popup from "https://gavinmorrow.github.io/EasyJS/2/ui/popup/index.js";
+import Popup, {sleep} from "https://gavinmorrow.github.io/EasyJS/2/ui/popup/index.js";
 import NamedError from "https://gavinmorrow.github.io/EasyJS/2/errors/namedError/index.js";
 import "/ui.js";
 
@@ -98,4 +98,12 @@ const addFriend = async e => {
 	}
 }
 addEventListener("click", addFriend);
-setInterval(fetchFriends, 1000 /* * 60 */);
+setInterval(fetchFriends, 1000 * 60); // Refresh every minute
+
+document.getElementById("enter-brawlosseum").addEventListener("click", async () => {
+	const brawlosseum = document.getElementById("brawlosseum");
+	brawlosseum.style.zIndex = "1";
+	brawlosseum.style.opacity = "1";
+	document.getElementById("game").style.opacity = "0";
+	await sleep(1000);
+});

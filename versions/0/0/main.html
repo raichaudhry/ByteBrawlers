@@ -11,17 +11,27 @@
 	<!-- (start) -->
 	<!-- GAME HTML -->
 	<div id="game-wrapper">
-		<section id="friends">
-			<ul id="friendsList">
-				<button id="add-friend" role="listitem">Find Friend</button>
-			</ul>
-		</section>
+		<div style="float: left;">
+			<section id="friends">
+				<ul id="friendsList">
+					<button id="add-friend" role="listitem">Find Friend</button>
+				</ul>
+			</section>
+			<section id="brawl-section">
+				<img src="/imgs/brawlosseum.svg" alt="Brawlosseum">
+				<br/>
+				<button id="enter-brawlosseum">Enter the Brawlosseum!</button>
+			</section>
+		</div>
 		<main>
 			<img src="/imgs/base-character.png" alt="Your brawler" id="brawler">
 			<br/>
-			<button disabled="disabled" id="edit-brawler">Edit Brawler</button>
+			<button disabled="disabled" id="edit-brawler" title="Coming soon!">Edit Brawler</button>
 		</main>
-		<div style="clear: both;"> <!-- Make the #game-wrapper div extend to cover both the section#friends and main --></div>
+		<section id="brawlosseum">
+			
+		</section>
+		<div style="clear: both;"> <!-- Make the #game-wrapper div extend to cover both the section#friends and main --> </div>
 	</div>
 	<!-- GAME HTML -->
 	<!-- (end) -->
