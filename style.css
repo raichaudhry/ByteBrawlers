@@ -16,7 +16,8 @@ body {
 	height: fit-content;
 	position: relative;
 }
-h1, p {
+h1,
+p {
 	margin-bottom: 0;
 }
 
@@ -64,7 +65,8 @@ h1, p {
 #pass-toggle:checked {
 	background-color: var(--theme-orange);
 }
-#pass-toggle:hover, #pass-toggle:focus {
+#pass-toggle:hover,
+#pass-toggle:focus {
 	box-shadow: 0 0 calc(var(--border-radius) * 2) 0 var(--easyjs-text) inset !important;
 }
 #submit {
@@ -72,7 +74,8 @@ h1, p {
 	box-shadow: 0 0 calc(var(--border-radius) / 4) 0 var(--easyjs-text);
 	transition: box-shadow 1s;
 }
-#submit:hover, #submit:focus {
+#submit:hover,
+#submit:focus {
 	box-shadow: 0 0 calc(var(--border-radius) * 2) 0 var(--easyjs-text);
 }
 
@@ -84,6 +87,8 @@ footer a {
 	text-decoration-color: transparent;
 	transition: text-decoration-color 1s;
 }
-footer a:hover, footer a:active, footer a:focus {
+footer a:hover,
+footer a:active,
+footer a:focus {
 	text-decoration-color: var(--easyjs-link);
 }

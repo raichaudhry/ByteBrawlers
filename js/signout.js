@@ -7,5 +7,5 @@ const signout = async () => {
 	Cookie.get("pass").delete();
 	location.replace("/");
 	return true;
-}
+};
 document.getElementById("signout").addEventListener("click", signout);

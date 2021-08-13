@@ -1,34 +1,38 @@
 import colorScheme from "https://gavinmorrow.github.io/EasyJS/2/ui/colorScheme/index.js";
 import Cookie from "https://gavinmorrow.github.io/EasyJS/1/cookies/cookie/index.js";
 import cookieConsent from "https://gavinmorrow.github.io/EasyJS/1/cookies/cookieConsent/index.js";
-colorScheme.setColors({
-	bg: "#12c0ff",
-	navBg: "#10befd",
-	contrastNavBg: "#043b6c",
-	cardBg: "#32e0ff",
-	buttonBg: "#22d0ef",
-	divideBg: "#2c2c2c",
-	alertBg: "#ffff00",
 
-	text: "#063d6e",
-	subText: "#535353",
-	link: "#0000ff",
-}, {
-	bg: "#063d6e",
-	navBg: "#043b6c",
-	contrastNavBg: "#10befd",
-	cardBg: "#265d8e",
-	buttonBg: "#32699a",
-	divideBg: "#d3d3d3",
-	alertBg: "#aaaa00",
+colorScheme.setColors(
+	{
+		bg: "#12c0ff",
+		navBg: "#10befd",
+		contrastNavBg: "#043b6c",
+		cardBg: "#32e0ff",
+		buttonBg: "#22d0ef",
+		divideBg: "#2c2c2c",
+		alertBg: "#ffff00",
 
-	text: "#12c0ff",
-	subText: "#acacac",
-	link: "#adddad",
-},);
+		text: "#063d6e",
+		subText: "#535353",
+		link: "#0000ff",
+	},
+	{
+		bg: "#063d6e",
+		navBg: "#043b6c",
+		contrastNavBg: "#10befd",
+		cardBg: "#265d8e",
+		buttonBg: "#32699a",
+		divideBg: "#d3d3d3",
+		alertBg: "#aaaa00",
+
+		text: "#12c0ff",
+		subText: "#acacac",
+		link: "#adddad",
+	}
+);
 const cs = () => {
 	colorScheme.autoChange = true;
-	switch(Cookie.get("cs").value) {
+	switch (Cookie.get("cs").value) {
 		case "light":
 			colorScheme.set(true);
 			break;
@@ -41,7 +45,7 @@ const cs = () => {
 			colorScheme.autoChange = true;
 			break;
 	}
-}
+};
 cs();
 addEventListener("cs", cs);
 
@@ -68,15 +72,15 @@ window.warn = async (reason, time = 5000, autoHide = true) => {
 			break;
 	}
 	document.body.appendChild(elem);
-	await sleep(1) // Allow the element to be added to the DOM
+	await sleep(1); // Allow the element to be added to the DOM
 	elem.style.setProperty("right", `var(--border-radius)`);
 	await sleep(2000); // wait 5s for the transition to finish
 	await sleep(time); // then wait the ammount of time the caller wants the alert to be shown
 
 	const hide = () => elem.style.setProperty("right", `-100vw`);
 	if (autoHide) hide();
-	else return {elem, hide};
-}
+	else return { elem, hide };
+};
 
 window.ee = (name, find = "") => {
 	// First, see if you have to find the easter egg or see if it is found
@@ -87,4 +91,4 @@ window.ee = (name, find = "") => {
 	const eeCookie = Cookie.get(`ee-${name}`);
 	if (eeCookie.value === "f") return true;
 	else return false;
-}
+};

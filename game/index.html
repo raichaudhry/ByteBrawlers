@@ -1,50 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>ByteBrawlers</title>
-	<link rel="stylesheet" href="./style.css">
-	<link rel="stylesheet" href="./game-transition.css" media="print" id="game-transition-link">
-</head>
-<body onload="document.getElementById('game-transition-link').media='all';">
-	<h1 id="title">Byte<wbr>Brawlers</h1>
-	<section id="main">
-		<div>
-			<select id="version" title="Version Number">
-				<option selected>0.0</option>
-			</select>
-			<button id="play">Play</button>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ByteBrawlers</title>
+		<link rel="stylesheet" href="./style.css" />
+		<link
+			rel="stylesheet"
+			href="./game-transition.css"
+			media="print"
+			id="game-transition-link"
+		/>
+	</head>
+	<body onload="document.getElementById('game-transition-link').media='all';">
+		<h1 id="title">Byte<wbr />Brawlers</h1>
+		<section id="main">
+			<div>
+				<select id="version" title="Version Number">
+					<option selected>0.0</option>
+				</select>
+				<button id="play">Play</button>
+			</div>
+		</section>
+		<section id="game"></section>
+		<div id="widgets-wrapper" data-hidden style="opacity: 0">
+			<button id="hamburger">≡</button>
+			<nav id="widgets">
+				<button class="widget" id="signout">Sign Out</button>
+				<button class="widget" id="back">Back To Launcher</button>
+				<section class="widget" id="profile">
+					<h1 class="widget-title">
+						<span id="username-output"></span> - Profile
+					</h1>
+				</section>
+				<section class="widget" id="cs-widget">
+					<h1 class="widget-title">Color Scheme</h1>
+					<div id="cs-widget-inner">
+						<input
+							type="radio"
+							id="cs-auto"
+							name="cs"
+							value="auto"
+						/>
+						<label for="cs-auto" title="Sync with System"
+							>Automatic</label
+						><br />
+						<input
+							type="radio"
+							id="cs-light"
+							name="cs"
+							value="light"
+						/>
+						<label for="cs-light">Light</label><br />
+						<input
+							type="radio"
+							id="cs-dark"
+							name="cs"
+							value="dark"
+						/>
+						<label for="cs-dark">Dark</label>
+					</div>
+				</section>
+			</nav>
 		</div>
-	</section>
-	<section id="game"></section>
-	<div id="widgets-wrapper" data-hidden style="opacity: 0;">
-		<button id="hamburger">≡</button>
-		<nav id="widgets">
-			<button class="widget" id="signout">Sign Out</button>
-			<button class="widget" id="back">Back To Launcher</button>
-			<section class="widget" id="profile">
-				<h1 class="widget-title"><span id="username-output"></span> - Profile</h1>
-			</section>
-			<section class="widget" id="cs-widget">
-				<h1 class="widget-title">Color Scheme</h1>
-				<div id="cs-widget-inner">
-					<input type="radio" id="cs-auto" name="cs" value="auto">
-					<label for="cs-auto" title="Sync with System">Automatic</label><br>
-					<input type="radio" id="cs-light" name="cs" value="light">
-					<label for="cs-light">Light</label><br>
-					<input type="radio" id="cs-dark" name="cs" value="dark">
-					<label for="cs-dark">Dark</label>
-				</div>
-			</section>
-		</nav>
-	</div>
 
-	<script src="./script.js" type="module"></script>
-	<script src="./widgets/index.js" type="module" defer></script>
-	<script src="./widgets/userInfo.js" type="module" defer></script>
-	<script src="./widgets/colorScheme.js" type="module" defer></script>
-	<script src="/js/signout.js" type="module" defer></script>
-</body>
+		<script src="./script.js" type="module"></script>
+		<script src="./widgets/index.js" type="module" defer></script>
+		<script src="./widgets/userInfo.js" type="module" defer></script>
+		<script src="./widgets/colorScheme.js" type="module" defer></script>
+		<script src="/js/signout.js" type="module" defer></script>
+	</body>
 </html>

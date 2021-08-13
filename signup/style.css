@@ -18,7 +18,8 @@ body {
 	margin-top: 0;
 }
 
-fieldset, #submit {
+fieldset,
+#submit {
 	border-radius: var(--border-radius);
 	border: none;
 	background-color: var(--easyjs-cardBg);
@@ -30,7 +31,8 @@ fieldset, #submit {
 	position: relative;
 	z-index: 100;
 }
-:is(fieldset, #submit):hover, :is(fieldset, #submit):focus-within {
+:is(fieldset, #submit):hover,
+:is(fieldset, #submit):focus-within {
 	box-shadow: 0 0 calc(var(--border-radius) * 1.5) 0 var(--easyjs-text);
 }
 input:not(#submit) {
@@ -44,7 +46,8 @@ input:not(#submit):focus {
 	border-bottom: 1px solid rgba(var(--easyjs-rgb-text), 1);
 }
 
-label.input-required::after, footer span {
+label.input-required::after,
+footer span {
 	content: "*";
 	color: var(--theme-orange);
 }
@@ -61,6 +64,7 @@ footer {
 	width: fit-content;
 	text-align: left;
 }
-footer:hover, footer:focus {
+footer:hover,
+footer:focus {
 	z-index: 101;
 }

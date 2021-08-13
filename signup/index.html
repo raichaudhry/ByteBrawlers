@@ -1,37 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Signup - ByteBrawlers</title>
-	<link rel="stylesheet" href="style.css" media="print" onload="this.media='all';this.onload='';">
-</head>
-<body>
-	<h1 id="title">ByteBrawlers</h1>
-	<form action="javascript:signup()" id="form">
-		<fieldset>
-			<label for="username" class="input-required">Username:</label>
-			<input type="text" name="username" id="username" required autocomplete="username">
-		</fieldset>
-		<fieldset>
-			<label for="pass" class="input-required">Password:</label>
-			<input type="password" name="password" id="password" required autocomplete="new-password">
-			<br/>
-			<label for="passV" class="input-required">Verify:</label>
-			<input type="password" name="passwordV" id="passwordV" required autocomplete="off">
-		</fieldset>
-		<fieldset>
-			<label for="email" class="input-required">Email:</label>
-			<input type="email" name="email" id="email" required autocomplete="email">
-		</fieldset>
-		<fieldset>
-			<label for="name">First Name:</label>
-			<input type="text" name="name" id="name" autocomplete="name">
-		</fieldset>
-		<input type="submit" value="Create Account" id="submit">
-	</form>
-	<footer><span>*</span> Required<br/>Already have an account? <a href="/">Log in</a></footer>
-	<script src="script.js" type="module"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<script>
+			window.onerror = function (message, source, lineno, colno, error) {
+				alert(`${message} (${source} ${lineno}:${colno})\n${error}`);
+			};
+		</script>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Signup - ByteBrawlers</title>
+		<link
+			rel="stylesheet"
+			href="style.css"
+			media="print"
+			onload="this.media='all';this.onload='';"
+		/>
+	</head>
+	<body>
+		<h1 id="title">ByteBrawlers</h1>
+		<form action="javascript:signup()" id="form">
+			<fieldset>
+				<label for="username" class="input-required">Username:</label>
+				<input
+					type="text"
+					name="username"
+					id="username"
+					required
+					autocomplete="username"
+				/>
+			</fieldset>
+			<fieldset>
+				<label for="pass" class="input-required">Password:</label>
+				<input
+					type="password"
+					name="password"
+					id="password"
+					required
+					autocomplete="new-password"
+				/>
+				<br />
+				<label for="passV" class="input-required">Verify:</label>
+				<input
+					type="password"
+					name="passwordV"
+					id="passwordV"
+					required
+					autocomplete="off"
+				/>
+			</fieldset>
+			<fieldset>
+				<label for="email" class="input-required">Email:</label>
+				<input
+					type="email"
+					name="email"
+					id="email"
+					required
+					autocomplete="email"
+				/>
+			</fieldset>
+			<fieldset>
+				<label for="name">First Name:</label>
+				<input type="text" name="name" id="name" autocomplete="name" />
+			</fieldset>
+			<input type="submit" value="Create Account" id="submit" />
+		</form>
+		<footer>
+			<span>*</span> Required<br />Already have an account?
+			<a href="/">Log in</a>
+		</footer>
+		<script src="script.js" type="module"></script>
+	</body>
 </html>

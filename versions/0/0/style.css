@@ -5,13 +5,14 @@ main {
 	text-align: center;
 }
 
-#friends, #brawl-section {
+#friends,
+#brawl-section {
 	padding: var(--border-radius);
 	border-radius: var(--border-radius);
 	background-color: var(--easyjs-cardBg);
 	margin: var(--border-radius);
 }
-#friends>div:last-of-type {
+#friends > div:last-of-type {
 	clear: both;
 }
 #friendsList {
@@ -19,7 +20,8 @@ main {
 	padding: 0;
 	margin: 0;
 }
-#friendsList li, #add-friend {
+#friendsList li,
+#add-friend {
 	background-color: var(--easyjs-buttonBg);
 	padding: var(--border-radius);
 	margin: calc(var(--border-radius) / 2);

@@ -24,7 +24,7 @@ html {
 	justify-content: center;
 	align-items: center;
 }
-#main>div {
+#main > div {
 	display: inline-block;
 	width: fit-content;
 	height: fit-content;
@@ -47,7 +47,8 @@ html {
 	transition: box-shadow 1s;
 	width: 100%;
 }
-#signout:focus, #signout:hover {
+#signout:focus,
+#signout:hover {
 	box-shadow: 0 0 var(--border-radius) 0 var(--easyjs-light-text) inset;
 }
 
@@ -55,28 +56,30 @@ html {
 	background-color: var(--theme-dark-blue);
 	color: var(--theme-light-blue);
 	transition: box-shadow 1s;
-	box-shadow: 0 0 calc(var(--border-radius) / 2) 0 var(--theme-light-blue) inset;
+	box-shadow: 0 0 calc(var(--border-radius) / 2) 0 var(--theme-light-blue)
+		inset;
 	width: 100%;
 	display: none;
 }
-#back:focus, #back:hover {
+#back:focus,
+#back:hover {
 	box-shadow: 0 0 var(--border-radius) 0 var(--theme-light-blue) inset;
 }
 
 #profile::before {
 	--title: "Profile";
 }
-#profile>p {
+#profile > p {
 	border-radius: var(--border-radius);
 	padding: var(--border-radius);
 	margin: var(--border-radius);
 	background-color: var(--easyjs-light-buttonBg);
 	overflow-x: scroll;
 }
-#profile>p>div {
+#profile > p > div {
 	display: inline-block;
 }
-#profile>p>div:first-of-type {
+#profile > p > div:first-of-type {
 	text-transform: capitalize;
 }
 
@@ -85,7 +88,7 @@ html {
 	display: inline-block;
 	vertical-align: middle;
 }
-#cs-widget-inner>input {
+#cs-widget-inner > input {
 	appearance: none;
 	border-radius: var(--border-radius);
 	padding: calc(var(--border-radius) * 2);
@@ -95,12 +98,13 @@ html {
 	transition: background-color 0.25s;
 	border: none;
 }
-#cs-widget-inner>input:hover, #cs-widget-inner>input:focus {
+#cs-widget-inner > input:hover,
+#cs-widget-inner > input:focus {
 	background-color: rgba(var(--easyjs-rgb-dark-buttonBg), 0.5);
 }
-#cs-widget-inner>input:checked {
+#cs-widget-inner > input:checked {
 	background-color: var(--easyjs-dark-buttonBg);
 }
-#cs-widget-inner>* {
+#cs-widget-inner > * {
 	vertical-align: middle;
 }

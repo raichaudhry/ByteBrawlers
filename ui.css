@@ -3,14 +3,14 @@
 @font-face {
 	font-family: "title";
 	src: url("/fonts/title.ttf") format("truetype");
-	unicode-range: U+0020-U+007E;
+	unicode-range: U+0020- U+007E;
 	font-display: swap;
 	font-variant: unicase;
 }
 @font-face {
 	font-family: "body";
 	src: url("/fonts/body.ttf") format("truetype");
-	unicode-range: U+0020-U+007E;
+	unicode-range: U+0020- U+007E;
 	font-display: swap;
 	font-variant: unicase;
 }
@@ -22,11 +22,11 @@
 	--theme-black: #242424;
 	--theme-dark-blue: #063d6e;
 	--theme-light-blue: #12c0ff;
-	--theme-orange: #FF4507;
+	--theme-orange: #ff4507;
 	--theme-1: #242424;
 	--theme-2: #063d6e;
 	--theme-3: #12c0ff;
-	--theme-4: #FF4507;
+	--theme-4: #ff4507;
 
 	--font-family-b1a: body, "Jura", "Comfortaa", sans-serif;
 	--font-family-b1b: "Jura", "Comfortaa", sans-serif;
@@ -35,9 +35,12 @@
 	--font-family-b1: var(--font-family-b1b);
 	--font-family-b2: var(--font-family-b2b);
 	--font-family-h1: "Major Mono Display", monospace;
-	--font-family-h1a: title, "Bungee Inline", "Major Mono Display", var(--font-family-b1);
-	--font-family-h1b: "Bungee Inline", "Major Mono Display", var(--font-family-b2);
-	--font-family-h1c: "Bungee Inline", "Major Mono Display", var(--font-family-b1);
+	--font-family-h1a: title, "Bungee Inline", "Major Mono Display",
+		var(--font-family-b1);
+	--font-family-h1b: "Bungee Inline", "Major Mono Display",
+		var(--font-family-b2);
+	--font-family-h1c: "Bungee Inline", "Major Mono Display",
+		var(--font-family-b1);
 	font-family: var(--font-family-b1);
 
 	--border-radius: 0.5em;
@@ -45,7 +48,8 @@
 	color: var(--easyjs-text);
 	background-color: var(--easyjs-bg);
 }
-html, body {
+html,
+body {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -59,7 +63,9 @@ html, body {
 	width: 100vw;
 	overflow-x: hidden;
 }
-button, input, select {
+button,
+input,
+select {
 	font-family: var(--font-family-b1);
 	font-size: inherit;
 	padding: calc(var(--border-radius) * 0.5);
@@ -67,13 +73,16 @@ button, input, select {
 	color: inherit;
 	background-color: inherit;
 }
-button, input[type="submit" i], select {
+button,
+input[type="submit" i],
+select {
 	background-color: var(--easyjs-buttonBg);
 	border: none;
 	transition: box-shadow 1s;
 	box-shadow: 0 0 calc(var(--border-radius) / 4) 0 var(--easyjs-subText);
 }
-:is(button, input[type="submit" i], select):hover, :is(button, input[type="submit" i], select):focus {
+:is(button, input[type="submit" i], select):hover,
+:is(button, input[type="submit" i], select):focus {
 	box-shadow: 0 0 var(--border-radius) 0 var(--easyjs-subText);
 }
 :is(input, button):disabled {
@@ -96,7 +105,12 @@ input:focus {
 	border-color: var(--init-focus-border-color);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-weight: normal;
 }
 
@@ -105,7 +119,8 @@ a {
 	text-decoration-color: transparent;
 	transition: text-decoration-color 1s;
 }
-a:hover, a:focus {
+a:hover,
+a:focus {
 	text-decoration-color: var(--easyjs-link);
 }
 
@@ -118,7 +133,7 @@ a:hover, a:focus {
 	color: var(--easyjs-dark-text) !important;
 	background-color: var(--easyjs-dark-bg) !important;
 }
-.easyjs-popup[id^='error'] {
+.easyjs-popup[id^="error"] {
 	color: var(--theme-orange) !important;
 }
 
@@ -130,7 +145,8 @@ a:hover, a:focus {
 	--box-shadow: calc(var(--border-radius) / 4);
 	--box-shadow-color: var(--easyjs-inverse-bg);
 	box-shadow: 0 0 var(--box-shadow) 0 var(--box-shadow-color);
-	margin: max(var(--box-shadow), var(--border-radius)) auto var(--box-shadow) auto;
+	margin: max(var(--box-shadow), var(--border-radius)) auto var(--box-shadow)
+		auto;
 	width: fit-content;
 	font: xxx-large var(--font-family-h1a);
 }

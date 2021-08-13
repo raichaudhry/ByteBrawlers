@@ -34,12 +34,13 @@
 	background-color: var(--easyjs-light-cardBg);
 	border-radius: var(--border-radius);
 	padding: var(--border-radius);
-	box-shadow: 0 0 calc(var(--border-radius) / 2) 0 var(--easyjs-light-text) inset;
+	box-shadow: 0 0 calc(var(--border-radius) / 2) 0 var(--easyjs-light-text)
+		inset;
 	margin: var(--border-radius) 0;
 	position: relative;
 	overflow-x: scroll;
 }
-.widget>.widget-title {
+.widget > .widget-title {
 	font-size: larger;
 	margin: 0;
 	border-radius: var(--border-radius);

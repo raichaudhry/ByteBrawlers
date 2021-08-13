@@ -9,14 +9,22 @@ const Cookie = cookies.Cookie;
 window.passInfo = async () => {
 	const username = document.getElementById("username");
 	const pass = document.getElementById("pass");
-	
+
 	if (username.value.toLowerCase() == "parzival") {
 		switch (pass.value) {
 			case "You have been recruited by the Star League to defend the frontier against Xur and the Ko-Dan Armanda.":
 			case "No one in the world gets what they want and that is beautiful.":
 			case "Reindeer Flotilla Setec Astronomy":
 				ee("rp1", true);
-				new Popup("Congratulations! You have discovered a Ready Player 1 easter egg!", undefined, undefined, undefined, true).then(popup => popup.show()).then(popup => popup.hide());
+				new Popup(
+					"Congratulations! You have discovered a Ready Player 1 easter egg!",
+					undefined,
+					undefined,
+					undefined,
+					true
+				)
+					.then(popup => popup.show())
+					.then(popup => popup.hide());
 				return;
 			default:
 				break;
@@ -24,38 +32,67 @@ window.passInfo = async () => {
 	}
 
 	const popupOptions = [2500, true];
-	const popup1 = new Popup(`Hello ${username.value}`, popupOptions[0], false, "in");
-	const popup2 = new Popup("Please enter the correct username and password.", ...popupOptions, "error");
+	const popup1 = new Popup(
+		`Hello ${username.value}`,
+		popupOptions[0],
+		false,
+		"in"
+	);
+	const popup2 = new Popup(
+		"Please enter the correct username and password.",
+		...popupOptions,
+		"error"
+	);
 	setTimeout(async () => {
 		// TODO: Remake login to account for PHP hashing (not JS)
 		if (await ili(username.value, pass.value)) {
 			log(username.value, "login");
 
-			const month = 1000*60*60*24*7*4;
-			new Cookie("username", username.value, new Date(Date.now()+month).toUTCString());
-			new Cookie("pass", pass.value, new Date(Date.now()+month).toUTCString());
+			const month = 1000 * 60 * 60 * 24 * 7 * 4;
+			new Cookie(
+				"username",
+				username.value,
+				new Date(Date.now() + month).toUTCString()
+			);
+			new Cookie(
+				"pass",
+				pass.value,
+				new Date(Date.now() + month).toUTCString()
+			);
 			popup1.wrapper.style.background = "black";
 			await (await popup1.show()).hide();
 			location.replace("/game/");
 		} else {
 			// Only log if the user exists, otherwise it will create an empty user directory (makeing a non-exisitant user)
-			if (await fetch(`${bbSrc}/userExists.php?username=${username.value}`).then(r => r.text()) === "1") log(username.value, "login-attempt");
+			if (
+				(await fetch(
+					`${bbSrc}/userExists.php?username=${username.value}`
+				).then(r => r.text())) === "1"
+			)
+				log(username.value, "login-attempt");
 			await (await popup2.show()).hide();
 		}
 	}, 100);
-}
+};
 
 const passToggle = document.getElementById("pass-toggle");
 passToggle.addEventListener("change", e => {
 	if (passToggle.checked) {
 		document.getElementById("pass").type = "text";
-		document.getElementById("pass-toggle-label").innerHTML = "Hide Password";
+		document.getElementById("pass-toggle-label").innerHTML =
+			"Hide Password";
 	} else {
 		document.getElementById("pass").type = "password";
-		document.getElementById("pass-toggle-label").innerHTML = "Show Password";
+		document.getElementById("pass-toggle-label").innerHTML =
+			"Show Password";
 	}
 });
-addEventListener("load", () => passToggle.style.setProperty("--size", getComputedStyle(document.getElementById("pass-toggle-label")).fontSize));
+addEventListener("load", () =>
+	passToggle.style.setProperty(
+		"--size",
+		getComputedStyle(document.getElementById("pass-toggle-label")).fontSize
+	)
+);
 
 (async () => {
 	if (await ili()) location.replace("/game/");

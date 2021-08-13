@@ -15,12 +15,16 @@ const isOpen = () => !isClosed();
 
 // Functionality
 document.getElementById("hamburger").addEventListener("click", () => {
-	// Open the widgets if it is not aready open, otherwise close them. 
-	// Although you can only see the button if the widgets are closed, you can keep your selection on it (so this is better for accessibility). 
+	// Open the widgets if it is not aready open, otherwise close them.
+	// Although you can only see the button if the widgets are closed, you can keep your selection on it (so this is better for accessibility).
 	if (isClosed()) open();
 	else close();
 });
 addEventListener("click", e => {
-	// If you click outside of the widgets, then close the widgets. 
-	if (!(e.target instanceof Node) || (!(widgetsWrapper.contains(e.target) || e.target == widgetsWrapper))) close();
+	// If you click outside of the widgets, then close the widgets.
+	if (
+		!(e.target instanceof Node) ||
+		!(widgetsWrapper.contains(e.target) || e.target == widgetsWrapper)
+	)
+		close();
 });

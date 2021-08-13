@@ -3,13 +3,41 @@ import Popup from "https://gavinmorrow.github.io/EasyJS/2/ui/popup/index.js";
 import cookieConsent from "https://gavinmorrow.github.io/EasyJS/1/cookies/cookieConsent/index.js";
 cookieConsent();
 const popups = {
-	verifyFailed: new Popup("The passwords do not match!", 5000, false, "error-verifyFailed"),
-	accountCreated: new Popup("Your account was created sucessfully! Check the email adress you entered earlier to activate it.", 5000),
-	somethingWentWrong: new Popup("Something went wrong. Reload the page and try again.", 5000, false, "error-somethingWentWrong"),
-	existingAccount: new Popup("Someone else is already using that username. Please enter a new one.", 5000, false, "error-existingAccount"),
-	existingParzivalAccount: new Popup("That username is already in use.", 2500, false, "error-existingAccount"),
-	usernameInvalid: new Popup("Your username can only contain latin letters and numbers.", 5000, false, "error-usernameInvalid"),
-}
+	verifyFailed: new Popup(
+		"The passwords do not match!",
+		5000,
+		false,
+		"error-verifyFailed"
+	),
+	accountCreated: new Popup(
+		"Your account was created sucessfully! Check the email adress you entered earlier to activate it.",
+		5000
+	),
+	somethingWentWrong: new Popup(
+		"Something went wrong. Reload the page and try again.",
+		5000,
+		false,
+		"error-somethingWentWrong"
+	),
+	existingAccount: new Popup(
+		"Someone else is already using that username. Please enter a new one.",
+		5000,
+		false,
+		"error-existingAccount"
+	),
+	existingParzivalAccount: new Popup(
+		"That username is already in use.",
+		2500,
+		false,
+		"error-existingAccount"
+	),
+	usernameInvalid: new Popup(
+		"Your username can only contain latin letters and numbers.",
+		5000,
+		false,
+		"error-usernameInvalid"
+	),
+};
 window.signup = async () => {
 	document.getElementById("submit").setAttribute("disabled", "");
 
@@ -41,12 +69,12 @@ window.signup = async () => {
 		return false;
 	}
 
-	const evaluatePhp = async (php) => {
+	const evaluatePhp = async php => {
 		const show_hide = async popup => {
 			await popups[popup].show();
 			await popups[popup].hide();
 			return true;
-		}
+		};
 		switch (php) {
 			case "00":
 				await popups.accountCreated.show();
@@ -61,7 +89,7 @@ window.signup = async () => {
 				break;
 		}
 		return php;
-	}
+	};
 	const phpFetch = await fetch("https://gavinmorrow.com/bb/src/signup.php", {
 		method: "POST",
 		body: new FormData(form),
@@ -73,4 +101,4 @@ window.signup = async () => {
 	const php = await phpFetch.text();
 	evaluatePhp(php);
 	document.getElementById("submit").removeAttribute("disabled");
-}
+};
